@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" http-equiv="Content-Type" content="text/html;">
+<title>game</title>
+  
+<script type="text/javascript" language="javascript" src="js/index.js"></script>
+<script type="text/javascript" language="javascript" src="js/firstFewPages.js"></script>
+<script type="text/javascript" language="javascript" src="js/demo.js"></script>
+<script type="text/javascript" language="javascript" src="js/time.js"></script>
+<script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
+<script type="text/javascript" language="javascript" src="js/app.js"></script>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+  <script type="text/javascript">
+    var game = new Object();
+    game.trialCount = 0;
+    // noteCount: 3,
+    game.noteCount = [];//for random level
+    game.levelCount = 0; //for random level
+    game.possibilities = ['c1','c2', 'c3', 'c4', 'c5'];
+    game.currentGame = [];
+    game.player = [];
+    game.userID = null;
+    game.condition = ['con1', 'con2', 'con3', 'con4', 'con5', 'con6'];
+
+    var log = new Object();
+    log.log = {};
+    log.logLevel1 = [];
+    log.logLevel2 = [];
+    log.logLevel3 = [];
+    log.currentGameLog = [];
+    log.playerLog = [];
+    log.clickIntervalLog = [];
+    log.eachClickLog = [];
+    log.timeSpanLog = [];
+
+    var timeLogIn = new Object();
+    timeLogIn.date = 0;
+    timeLogIn.month = 5;
+    timeLogIn.year = 2017;
+    timeLogIn.utcDate = 0;
+    timeLogIn.clickInterval = [];
+    timeLogIn.eachClick = [];
+    timeLogIn.timeStart = 0;
+    timeLogIn.timeEnd = 0;
+    timeLogIn.timeSpan = [];
+
+    var gameDemo = new Object();
+    gameDemo.trialCount = 1;
+    gameDemo.noteCount = 3;
+    gameDemo.possibilities = ['c1','c2', 'c3'];
+    gameDemo.currentGame = [];
+    gameDemo.player = [];
+    
+    var circleLevel1 = new Array(
+      ['c1','c3','c2'],
+      ['c3','c2','c1'],
+      ['c2','c1','c3']);
+
+    var circleLevel2 = new Array(
+      ['c4','c1','c3','c2'],
+      ['c1','c2','c4','c3'],
+      ['c3','c4','c2','c1'],
+      ['c2','c3','c1','c4']);
+
+    var circleLevel3 = new Array(
+      ['c5','c4','c1','c3','c2'],
+      ['c1','c5','c2','c4','c3'],
+      ['c4','c3','c5','c2','c1'],
+      ['c3','c2','c4','c1','c5'],
+      ['c2','c1','c3','c5','c4']);
+
+    </script>
+      <audio id="aNotes">
+        <!-- <source src="music_notes/a.mp3" type="audio/mp3"></source>
+        <source src="music_notes/a.ogg" type="audio/ogg"></source>
+        <source src="music_notes/a.wav" type="audio/wav"></source>  -->
+
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.mp3" type="audio/mp3"></source>
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/a_note.ogg" type="audio/ogg"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.wav" type="audio/wav"></source>
+      </audio>
+      <audio id="cNotes">
+        <!-- <source src="music_notes/c.mp3" type="audio/mp3"></source>
+        <source src="music_notes/c.ogg" type="audio/ogg"></source>
+        <source src="music_notes/c.wav" type="audio/wav"></source> -->
+
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.mp3" type="audio/mp3"></source>
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/c_note.ogg" type="audio/ogg"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.wav" type="audio/wav"></source>        
+      </audio>
+      <audio id="dNotes">
+        <!-- <source src="music_notes/d.mp3" type="audio/mp3"></source>
+        <source src="music_notes/d.ogg" type="audio/ogg"></source>
+        <source src="music_notes/d.wav" type="audio/wav"></source> -->
+
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.mp3" type="audio/mp3"></source>
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/d_note.ogg" type="audio/ogg"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.wav" type="audio/wav"></source>  
+      </audio>
+      <audio id="eNotes">
+        <!-- <source src="music_notes/e.mp3" type="audio/mp3"></source>
+        <source src="music_notes/e.ogg" type="audio/ogg"></source>
+        <source src="music_notes/e.wav" type="audio/wav"></source> -->
+
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.mp3" type="audio/mp3"></source>
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/e_note.ogg" type="audio/ogg"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.wav" type="audio/wav"></source>
+      </audio>  
+      <audio id="gNotes">
+        <!-- <source src="music_notes/g.mp3" type="audio/mp3"></source>
+        <source src="music_notes/g.ogg" type="audio/ogg"></source>
+        <source src="music_notes/g.wav" type="audio/wav"></source> -->
+
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.mp3" type="audio/mp3"></source>
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/g_note.ogg" type="audio/ogg"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.wav" type="audio/wav"></source>
+      </audio> 
+
+</div>
+
+<div class='playGround' id='playGround'>
+  <div class="text-center">
+    <h2 id="welcome">Welcome to the music "Mood Rater"<br/> <!-- 欢迎来到音乐演出的情绪评分实验 --></h2>
+    <style>
+      #welcome 
+      {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:   40px;
+        font-weight: bold;
+        margin-top:  60px;
+      }
+    </style> <!-- header -->
+  </div>
+
+  <div class="constant">
+    <div class="backgroundRect" id="backgroundRect">
+      <div class="gamefield" id="gamefield">
+          <div class="Page1" >
+              <p class="gamefield">
+                <!-- P52 in https://www.gold.ac.uk/media/documents-by-section/departments/psychology/Gold-MSIv10_Documentation-1.pdf -->
+
+Thank you for agreeing to take part in this experiment. 
+
+<!-- The Music, Mind and Brain group at Queen Mary, University of London, is investigating the a broad range of people in music emotion perceiotion. -->
+
+ Your participation in this experiment will greatly help us to discover the influence of individual difference in the music emotion perception. <br/></p>
+
+<p class="gamefield" >You will be asked to complete one questionnaire task and __ segments of musical emotion perception rating (instuctions will follow in next page). Please try to take this test in a quiet room; if possible, use headphones at a comfortable listening level. The whole task takes around 30 minutes and you may take breaks when you reach the instruction screens between tasks. <br/></p>
+<p class="gamefield"> 
+
+This experiment has been approved by the Ethics Committee at ..... Your data may be used in academic journals or selective press releases as part of our overall 􏰀findings, however at no stage will any personally identifying data be made available. If you have any questions about the experiment (or your personal ratings), please do not hesitate to get in touch with Simin Yang (simin.yang@qmul.ac.uk). <br/></p>
+
+<style>
+      #instruction
+
+      {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:   15px;
+        font-weight: bold;
+        margin-top:  20px;
+      }
+    </style>
+<!-- All data will be held in accordance with the Data Protection Act 1998 and destroyed within 5 years. -->
+
+
+
+
+                <!-- In this study, you are invited to rate the emotion you perceived by the music, with several video segments which are part of recordings of Inside Out Festival, QMUL:C4DM Concert — Arno Babajanian: Piano Trio.
+
+                Please watch the video and rate the emotion you perceived at the same time. Please do this in a quiet place and better with a headphone, and fullscreen your browser. This is really important if you want to help us on this project. <br/> 游戏开始前， 可能会有两段视频或者动画， 之后是一个游戏热身，可以重复练习。在这之后游戏开始。请找一个安静的地方玩，最好带着耳机，全屏浏览器。这会帮助我们获得更好的数据质量。</p> -->
+              
+      <p class="gamefield", id="instruction"> Click the "ID" button below to input your username. Please keep this ID in mind for a while for later use. Then please click on the "Questionnaire" to finish the survey"   <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p> 
+              
+              <form class="user-input">
+                <input type="button" value="ID" onclick="saveUserID()"/>
+                <input type="button" value="Questionnaire" onclick="openWin()"/>
+              </form>
+              
+              <!-- <br /> -->
+          
+    <p class="gamefield", id="instruction"> <br/> Finished? Thanks a lot! Please click ARROW below to start.  <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p>       
+    <div class="center" class="gamefield">
+      <button class="btnNEXT" onclick = "pagePivot(9)">❯</button>
+      <br />
+      </div> 
+       </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
