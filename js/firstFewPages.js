@@ -3,6 +3,7 @@
 
 var page = 3;
 
+
 function pagePivot(pageIndex_static){
     // console.log(pageIndex, page);
     switch(pageIndex_static) {
@@ -197,13 +198,13 @@ function canvasPrepare (gameCondition){
   if(gameCondition === "con2" || gameCondition === "con3"){ 
     var step = 20*canvasscale;
 
-    var d = document.createElement("div");
-    d.classList.add("ddd");
-  // d.id = "ddd"; 
-    d.style.position = "absolute";
-    d.style.left = "800px";
-    d.style.top = "300px";
-    $(".page2").append(d);
+    var ctd = document.createElement("div");
+    ctd.id = "ddd"; 
+    ctd.classList.add("ddd");
+    ctd.style.position = "absolute";
+    ctd.style.left = "800px";
+    ctd.style.top = "300px";
+    $(".page2").append(ctd);
 
     var canvas_e = document.createElement("canvas");
 
@@ -238,7 +239,7 @@ function canvasPrepare (gameCondition){
     };
   }
   // canvas x,y 
-  ctx.beginPath();
+    ctx.beginPath();
     ctx.strokeStyle = "rgb(0,0,0)";
     ctx.moveTo(0, 160*canvasscale);
     ctx.lineTo(320*canvasscale, 160*canvasscale);
@@ -271,6 +272,18 @@ function canvasPrepare (gameCondition){
     ctx.font = "16px Arial";
     ctx.fillText("Arousal", 0*canvasscale, 0*canvasscale);  
     ctx.restore();
+    $(".ddd").append(canvas_e);
+
+
+var canvas_R = document.getElementById('mycanvas');
+
+canvas_R.addEventListener('click', function(evt) {
+var mousePos = getMousePos(canvas_R, evt);
+var message = 'Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y;
+console.log(message);
+
+ });
+
 
   // var list = [];
   // tl: { r: 200, g: 0, b: 0 },
@@ -281,11 +294,11 @@ function canvasPrepare (gameCondition){
   //document.getElementById("myvideo").appendChild(canvas_e);
 
     //$(".gamefield").append(canvas_e);
-    $(".ddd").append(canvas_e);
     //document.body.appendChild(canvas_e)
   }
   //whichPrime();
 }
+
 
 function PB_CMT (gameCondition){
   if(page >= 4){
@@ -340,8 +353,47 @@ function PB_CMT (gameCondition){
   }
   $(".page2").append(ifrm);
   
-  console.log($('.btnNEXT'));
+  console.log($('.btnNEXT')); 
 }
+   
+
+function getMousePos(canvas, evt) {
+
+    var canvas = document.getElementById('mycanvas');
+    var context = canvas.getContext('2d');
+    var rect = canvas.getBoundingClientRect();
+
+    return {
+          x: ((evt.clientX - rect.left)/320).toFixed(3),
+          y: ((evt.clientY - rect.top)/320).toFixed(3)
+        };
+      }
+
+
+    
+
+
+// $(document).ready(function() {$('#mycanvas').click(function() {
+//         var posX = $(this).offset().left, posY = $(this).offset().top;
+//         console.log((e.pageX - posX)+ ' , ' + (e.pageY - posY))
+//         alert((e.pageX - posX)+ ' , ' + (e.pageY - posY));
+//     });
+// });
+
+// addEventListener('click', function(){
+
+//       buttonDemo.innerHTML = "Play again?" + "<br>" + "再来一遍";
+//       // if (btnNotPress === true){
+//       //   btnNotPress = false;
+//       //   var  buttonDemo2 = btnUtility("No, thanks, next." + "<br>" + "不了，下一页")
+//       //   buttonDemo2.id = 'en_disable';
+//       //   $(".page3").append(buttonDemo2);
+//         buttonDemo2.addEventListener('click', function(){
+//           pagePivot(page ++);
+//           })
+//         }
+//       startDemo();
+//     });
 
 
 
@@ -541,4 +593,3 @@ function PB_CMT (gameCondition){
 //     ctx.clearRect(0, 0, 400, 400);
 //   }, timeElapse);
 // }
-
