@@ -132,8 +132,6 @@ function pageRating(){
   $(".gamefield").append(page2);
 
 
-
-
 // var d = document.createElement("div");
 //     d.classList.add("ddd");
 //   // d.id = "ddd"; 
@@ -145,6 +143,7 @@ function pageRating(){
 
   var paragraph = document.createElement("p");
   var header = document.createElement("h2");
+
   header.id="name"
   paragraph.id = 'conditions';
   header.innerHTML = "Video clips"
@@ -153,11 +152,15 @@ function pageRating(){
   $(".page2").append(header);
   $(".page2").append(paragraph);
  //AROUSAL-VALENCE SPACE canvas prepare
-  canvasPrepare ("con2")
+
   //Vedio player
-  PB_CMT("con2")
-  //
+  //PB_CMT()
   
+
+  //
+  canvasPrepare ("con2");
+
+
 
 
   // var paragraph = document.createElement("p");
@@ -193,11 +196,36 @@ function beforePrime(){
 
 
 function canvasPrepare (gameCondition){
+  var ifrm = document.createElement("div");
+  ifrm.classList.add("ifrm");
+  ifrm.id = "myvideo";
+
+  $(".page2").append(ifrm);
+
+
+  const player1 =jwplayer("myvideo").setup({
+  
+     file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
+    //file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
+    
+        width: 600,
+         height: 404,
+        //aspectratio: '16:9',
+        autostart: false
+      });
+  
+ 
+function getVideoCurrentime() {
+  return player1.getPosition();
+  console.log(player1.getPosition());
+}
+
+  console.log($('.btnNEXT')); 
+
   //$(".explainRemove").remove();
   var canvasscale= 1
   if(gameCondition === "con2" || gameCondition === "con3"){ 
     var step = 20*canvasscale;
-
     var ctd = document.createElement("div");
     ctd.id = "ddd"; 
     ctd.classList.add("ddd");
@@ -205,9 +233,13 @@ function canvasPrepare (gameCondition){
     ctd.style.left = "800px";
     ctd.style.top = "300px";
     $(".page2").append(ctd);
+    // ctd.style.position = "relative";
+    // ctd.style.left = "800px";
+    // ctd.style.top = "0px";
+
+    // $(".ifrm").append(ctd);
 
     var canvas_e = document.createElement("canvas");
-
     canvas_e.id = "mycanvas";
     canvas_e.width = 320*canvasscale;
     canvas_e.height = 320*canvasscale;
@@ -278,9 +310,11 @@ function canvasPrepare (gameCondition){
 var canvas_R = document.getElementById('mycanvas');
 
 canvas_R.addEventListener('click', function(evt) {
-var mousePos = getMousePos(canvas_R, evt);
-var message = 'Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y;
-console.log(message);
+
+  var mousePos = getMousePos(canvas_R, evt);
+  var videotimestamp=getVideoCurrentime();
+  var message = 'Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
+  console.log(message);
 
  });
 
@@ -299,13 +333,51 @@ console.log(message);
   //whichPrime();
 }
 
+//gameCondition
 
-function PB_CMT (gameCondition){
-  if(page >= 4){
-    $("#myvideo").remove();
-  }
-  var ifrm = document.createElement("iframe");
-  ifrm.id = "myvideo";
+
+
+
+// function PB_CMT (){
+//   if(page >= 4){
+//     $("#myvideo").remove();
+//   }
+
+//   var ifrm = document.createElement("div");
+//   ifrm.classList.add("ifrm");
+//   ifrm.id = "myvideo";
+
+//   $(".page2").append(ifrm);
+
+//         // Setup the player
+//   // const player = jwplayer('player').setup({
+//   //           file: 'https://content.jwplatform.com/videos/ns8naR5X-u8GeqODi.mp4'
+//   //       });
+
+
+//   // var ifrm = document.createElement("div");
+//   // ifrm.id = "myvideo";
+
+//   const player1 =jwplayer("myvideo").setup({
+  
+//     file: "https://content.jwplatform.com/videos/ns8naR5X-u8GeqODi.mp4",
+    
+//         width: 600,
+//         height: 480,
+//         aspectratio: '16:9',
+//         autostart: false
+//       });
+
+//   canvasPrepare ("con2")
+
+//   function getVideoCurrentime() {
+//   return player1.getPosition();
+
+//   console.log(player1.getPosition());
+// }
+//   console.log($('.btnNEXT')); 
+
+// }
 
   // var para = document.createElement("p");
   // para.classList.add("page2");
@@ -319,53 +391,60 @@ function PB_CMT (gameCondition){
   // }else if (page === 6){
   //   $("#displaytimes").remove();
   //   para.innerHTML = "Second time. " + " 第二次。";
+  // // }
+
+  // if(gameCondition === "con2"){
+  //   if(page == 5){
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");//jwplayer
+  //   }else{
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");
+  //   }
+  //   // ifrm.style.width = "(560*3)px";
+  //   // ifrm.style.height = "(315*2)px";
+  //   ifrm.style.width = "600px";
+  //   ifrm.style.height = "400px";
+
+
+  // }else{
+  //   if(page == 5){
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
+  //   }else{
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
+  //   }
+  //    // w=10;
+  //   // ifrm.style.width = "560wpx";
+  //   // ifrm.style.height = "(315*w)px";
+  //   // ifrm.style.frameborder = "10"
+  //   // ifrm.style.scrolling="audo"
+  
+  //   w=10;
+  //   ifrm.style.width = "560px";
+  //   ifrm.style.height = "315px";
+  //   ifrm.style.frameborder = "10"
+  //   ifrm.style.scrolling="audo"
   // }
-
-  if(gameCondition === "con2"){
-    if(page == 5){
-      ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");//jwplayer
-    }else{
-      ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");
-    }
-    // ifrm.style.width = "(560*3)px";
-    // ifrm.style.height = "(315*2)px";
-    ifrm.style.width = "600px";
-    ifrm.style.height = "400px";
-
-
-  }else{
-    if(page == 5){
-      ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
-    }else{
-      ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
-    }
-     // w=10;
-    // ifrm.style.width = "560wpx";
-    // ifrm.style.height = "(315*w)px";
-    // ifrm.style.frameborder = "10"
-    // ifrm.style.scrolling="audo"
   
-    w=10;
-    ifrm.style.width = "560px";
-    ifrm.style.height = "315px";
-    ifrm.style.frameborder = "10"
-    ifrm.style.scrolling="audo"
-  }
-  $(".page2").append(ifrm);
-  
-  console.log($('.btnNEXT')); 
-}
+
+
    
+
+
 
 function getMousePos(canvas, evt) {
 
     var canvas = document.getElementById('mycanvas');
     var context = canvas.getContext('2d');
     var rect = canvas.getBoundingClientRect();
+    var date = new Date ();
+    var timeStamp = date.getTime ()
+    var timeString=  date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()+ "@"+date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();   
+  
 
     return {
           x: ((evt.clientX - rect.left)/320).toFixed(3),
-          y: ((evt.clientY - rect.top)/320).toFixed(3)
+          y: ((evt.clientY - rect.top)/320).toFixed(3),
+          clickdate: timeString,
+          unixtime:timeStamp
         };
       }
 
