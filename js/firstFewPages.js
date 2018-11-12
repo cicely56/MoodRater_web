@@ -194,36 +194,15 @@ function beforePrime(){
 
 
 
-
 function canvasPrepare (gameCondition){
+
   var ifrm = document.createElement("div");
   ifrm.classList.add("ifrm");
   ifrm.id = "myvideo";
-
   $(".page2").append(ifrm);
 
-
-  const player1 =jwplayer("myvideo").setup({
-  
-     file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
-    //file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
-    
-        width: 600,
-         height: 404,
-        //aspectratio: '16:9',
-        autostart: false
-      });
-  
- 
-function getVideoCurrentime() {
-  return player1.getPosition();
-  console.log(player1.getPosition());
-}
-
-  console.log($('.btnNEXT')); 
-
-  //$(".explainRemove").remove();
   var canvasscale= 1
+
   if(gameCondition === "con2" || gameCondition === "con3"){ 
     var step = 20*canvasscale;
     var ctd = document.createElement("div");
@@ -231,46 +210,86 @@ function getVideoCurrentime() {
     ctd.classList.add("ddd");
     ctd.style.position = "absolute";
     ctd.style.left = "800px";
-    ctd.style.top = "300px";
+    ctd.style.top = "250px";
     $(".page2").append(ctd);
-    // ctd.style.position = "relative";
-    // ctd.style.left = "800px";
-    // ctd.style.top = "0px";
-
-    // $(".ifrm").append(ctd);
 
     var canvas_e = document.createElement("canvas");
     canvas_e.id = "mycanvas";
+    canvas_e.position="absolute";
     canvas_e.width = 320*canvasscale;
     canvas_e.height = 320*canvasscale;
+
+    // var datelabel = document.createElement('div')
+    // document.getElementById('ddd').appendChild(datelabel);
+
+  }
+
+  drawCanvas();
+
+  var datalabel = document.createElement('div');
+    //datalabel.classList.add("ddd");
+  datalabel.id="emotionlabel";
   
-    // var canvas = document.getElementById("mycanvas");
+  document.getElementById('ddd').append(datalabel);
+
+  const player1 =jwplayer("myvideo").setup({
+  
+    //file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
+    //wangwang
+    //file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
+    // wholemovment
+    file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+    
+    width: 600,
+    height: 404,
+    repeat: true,
+    //aspectratio: '16:9',
+    autostart: false
+  });
+  
+  function getVideoCurrentime() {
+    return player1.getPosition();
+    console.log(player1.getPosition());
+  }
+
+  console.log($('.btnNEXT')); 
+
+  var canvas_R = document.getElementById('mycanvas');
+
+  canvas_R.addEventListener('click', function(evt) {
+    var mousePos = getMousePos(canvas_R, evt);
+    var videotimestamp=getVideoCurrentime();
+    var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
+    setMarker(canvas_R,evt);
+    console.log(message);
+  });
+
+  function drawCanvas () {
+  //$(".explainRemove").remove();
     var ctx = canvas_e.getContext("2d");
-
-    //canvas background
-    for (var y = 0; y < 320; y += step) {
-
+      //canvas background
+    for (var y = 0; y < 320*canvasscale; y += step) {
         var tl= {r: 200, g: 0, b: 0 };
         var tr= { r: 200, g: 150, b: 0 };
         var bl= { r: 0, g: 50, b: 100 };
         var br= { r: 200, g: 230, b: 80 };
 
-        var left = interpolateColor(tl, bl, y / 320);
-        var right =interpolateColor(tr, br, y / 320);
-    for (var x = 0; x < 320; x += step) {
-        var color = interpolateColor(left, right, x / 320);
+        var left = interpolateColor(tl, bl, y / (320*canvasscale));
+        var right =interpolateColor(tr, br, y / (320*canvasscale));
+    for (var x = 0; x < 320*canvasscale; x += step) {
+        var color = interpolateColor(left, right, x /( 320*canvasscale));
         ctx.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-        ctx.fillRect(x, y, step, step);
+        ctx.fillRect(x*canvasscale, y*canvasscale, step, step);
       }
     }
-  function interpolateColor (a, b, x) {
-    return {
+    function interpolateColor (a, b, x) {
+      return {
       r: Math.floor(a.r + (b.r - a.r) * x),
       g: Math.floor(a.g + (b.g - a.g) * x),
       b: Math.floor(a.b + (b.b - a.b) * x)
     };
-  }
-  // canvas x,y 
+    }
+    // canvas x,y 
     ctx.beginPath();
     ctx.strokeStyle = "rgb(0,0,0)";
     ctx.moveTo(0, 160*canvasscale);
@@ -304,20 +323,142 @@ function getVideoCurrentime() {
     ctx.font = "16px Arial";
     ctx.fillText("Arousal", 0*canvasscale, 0*canvasscale);  
     ctx.restore();
-    $(".ddd").append(canvas_e);
+    $(".ddd").append(canvas_e); 
+
+    
+
+    //var emotiontext = document.createTextNode(text);
+
+  }
 
 
-var canvas_R = document.getElementById('mycanvas');
+  function setMarker(canvas_R,evt) {
 
-canvas_R.addEventListener('click', function(evt) {
+    var rect = canvas_R.getBoundingClientRect();
+        marker = {
+            x: ((evt.clientX - rect.left)).toFixed(3),
+            y: ((evt.clientY - rect.top)).toFixed(3),
+        };
 
-  var mousePos = getMousePos(canvas_R, evt);
-  var videotimestamp=getVideoCurrentime();
-  var message = 'Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
-  console.log(message);
 
- });
+    drawCanvas ();
+    // draw marker
+    ctx=document.getElementById('mycanvas').getContext("2d");
+    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    ctx.beginPath();
+    ctx.arc(marker.x, marker.y, 20, 0, Math.PI*2, true); 
+    ctx.fill();
+    
+// var page2 = document.createElement('div')
+//   page2.classList.add("page2");
 
+
+//   $(".gamefield").append(page2);
+    
+    var moods= [
+    ['power',0.69,0.71,0.79,1],
+    ['bright',0.81,0.55,0.67,2],
+    ['brutal',0.23,0.7,0.45,3],
+    ['confused',0.28,0.63,0.41,4],
+    ['rock',0.57,0.44,0.52,5],
+    ['serious',0.51,0.38,0.52,6],
+    ['relaxed',0.75,0.17,0.57,7],
+    ['calm',0.72,0.33,0.67,8],
+    ['dark',0.46,0.41,0.48,9],
+    ['dirty',0.26,0.49,0.46,10],
+    ['energy',0.78,0.74,0.74,11],
+    ['fun',0.92,0.78,0.73,12],
+    ['aggressive',0.51,0.6,0.57,13],
+    ['scary',0.28,0.71,0.33,14],
+    ['positive',0.88,0.57,0.65,15],
+    ['sad',0.08,0.39,0.31,16]];
+
+    
+    var x = ((evt.clientX - rect.left)/320).toFixed(3);
+    var y =(1-(evt.clientY - rect.top)/320).toFixed(3);
+
+    
+  datalabel=document.getElementById('emotionlabel');
+  datalabel.innerHTML =findMood(x, y);
+  document.getElementById('ddd').append(datalabel);
+
+  function findMood(x, y) {
+    var distance = 1;
+    var index = null;
+    
+    for (var i = 0; i < moods.length; i++) {
+      var mood = moods[i];
+      var dx = Math.abs(mood[1] - x);
+      var dy = Math.abs(mood[2] - y);
+      var d = Math.sqrt(dx * dx + dy * dy);
+
+      if (d < distance) {
+        distance = d;
+        index = i;
+      }
+    }
+
+    return moods[index][0];
+  }
+
+
+    
+    //var newDiv = document.createElement('div');
+    //var newContent = document.createTextNode('Hello');
+    //newDiv.appendChild(datalabel);
+
+    
+
+    // canvas_e.append(datelabel);
+    // datelabel.innerHTML ="hellllllllllllllllo";
+
+    // var text = '#write_whatever';
+
+
+    
+    // // ctx.clearRect(0, 0, 10, 20);
+    // ctx.fillStyle = "#3e3e3e";
+    // ctx.font = "16px Arial";
+    // ctx.fillText(text, 20, canvas_R.height -80);
+    
+
+    // datelabel.style.position= "relative";
+    // datelabel.style.left="0px"
+    // datelabel.style.top="350px"
+
+//     d.style.left = "800px";
+//     d.style.top = "180px";
+    
+    
+
+
+  }
+    
+      
+    //var x = event.pageX / 320;
+    //var y = 1 - event.pageY / 320;
+
+    //this.label.innerHTML = this.findMood(x, y);
+  
+
+  // findMood: function(x, y) {
+  //   var distance = 1;
+  //   var index = null;
+    
+  //   for (var i = 0; i < this.moods.length; i++) {
+  //     var mood = this.moods[i];
+  //     var dx = Math.abs(mood[1] - x);
+  //     var dy = Math.abs(mood[2] - y);
+  //     var d = Math.sqrt(dx * dx + dy * dy);
+
+  //     if (d < distance) {
+  //       distance = d;
+  //       index = i;
+  //     }
+  //   }
+
+  //   return this.moods[index][0];
+  // }
 
   // var list = [];
   // tl: { r: 200, g: 0, b: 0 },
@@ -329,9 +470,10 @@ canvas_R.addEventListener('click', function(evt) {
 
     //$(".gamefield").append(canvas_e);
     //document.body.appendChild(canvas_e)
-  }
+  
   //whichPrime();
-}
+
+
 
 //gameCondition
 
@@ -425,7 +567,7 @@ canvas_R.addEventListener('click', function(evt) {
   // }
   
 
-
+}
    
 
 
@@ -442,7 +584,7 @@ function getMousePos(canvas, evt) {
 
     return {
           x: ((evt.clientX - rect.left)/320).toFixed(3),
-          y: ((evt.clientY - rect.top)/320).toFixed(3),
+          y: (1-((evt.clientY - rect.top)/320)).toFixed(3),
           clickdate: timeString,
           unixtime:timeStamp
         };

@@ -196,6 +196,16 @@ body {
 .btn-sett:hover {
   color: #828282;
 }
+.datalabel{
+   background-color: #828282
+   font-size: 100em;
+   /*position: relative;*/
+   background: #575757;
+  left: 0;
+  
+  top: 320;
+
+}
 
 .btnNEXT {
     display: inline-block;
@@ -227,7 +237,7 @@ body {
 }
 #mycanvas{
   background: white;
-  margin-left: 4em;
+  /*margin-left: 4em;*/
 }
 #lastPage{
   /*display: flex;*/
@@ -273,5 +283,10 @@ body {
   left: 0;
   position: absolute;
   top: 0;
-  /*display:inline-block;*/
+}
+#emotionlabel{
+  font-size: 45px;
+
+  /*background: white;*/
+  /*margin-left: 4em;*/
 }
