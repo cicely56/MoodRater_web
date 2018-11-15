@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-
+var bodyParser = require('body-parser');
 
 /**
  *  Define the sample application.
@@ -30,6 +30,7 @@ var SampleApp = function() {
             //  allows us to run/test the app locally.
             console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
             self.ipaddress = "127.0.0.1";
+            self.port      = 8080;
         };
     };
 
@@ -113,10 +114,12 @@ var SampleApp = function() {
      */
     self.initializeServer = function() {
         self.createRoutes();
-        self.app = express.createServer();
-        self.app.use(express.json());
-        self.app.use(express.urlencoded());
-
+        // self.app = express.createServer();
+        self.app = express();
+        self.app.use(bodyParser.urlencoded({ extended: true }));
+        //self.app.use(express.json());
+        //self.app.use(express.urlencoded());
+        self.app.use(bodyParser.json())
         self.app.use('/css', express.static(__dirname + '/css'));
         self.app.use('/js', express.static(__dirname + '/js'));
 
@@ -124,7 +127,7 @@ var SampleApp = function() {
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }
-        self.app.post('/game', function (req, res) {
+        self.app.post('/', function (req, res) {
             var isValidRequest = req.body.id != null && req.body.log != null;
             var responseMessage = isValidRequest ? "Valid Request" : "Invalid Request";
             var hasWrittenFile = false;

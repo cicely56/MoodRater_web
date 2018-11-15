@@ -1,0 +1,26 @@
+{
+  "name": "moodrater_web",
+  "version": "1.0.0",
+  "description": "moodrater web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cicely56/MoodRater_web.git"
+  },
+  "keywords": [
+    "moodrater"
+  ],
+  "author": "siminyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cicely56/MoodRater_web/issues"
+  },
+  "homepage": "https://github.com/cicely56/MoodRater_web#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

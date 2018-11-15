@@ -10,6 +10,7 @@
 <script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
 <script type="text/javascript" language="javascript" src="js/app.js"></script>
 <script type="text/javascript" language="javascript" src="js/jwplayer.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <!-- <script src="https://myctvbox.appspot.com/static/jwplayer/jwplayer.js"></script> -->
 <!-- <script src="https://content.jwplatform.com/libraries/WDIJhdqp.js"></script>
  --><!-- <script type="text/javascript">jwplayer.key="abcdefghijklmnop==";</script>
@@ -45,25 +46,43 @@
 
     var log = new Object();
     log.log = {};
-    log.logLevel1 = [];
-    log.logLevel2 = [];
+    log.logMov1 = [];
+    log.logMov2 = [];
     log.logLevel3 = [];
-    log.currentGameLog = [];
+    //log.currentGameLog = [];
     log.playerLog = [];
-    log.clickIntervalLog = [];
+    //log.clickIntervalLog = [];
     log.eachClickLog = [];
-    log.timeSpanLog = [];
+    //log.timeSpanLog = [];
+    log.ArousalLog=[];
+    log.ValenceLog=[];
+    log.videotimeLog=[];
 
     var timeLogIn = new Object();
-    timeLogIn.date = 0;
-    timeLogIn.month = 5;
-    timeLogIn.year = 2017;  
-    timeLogIn.utcDate = 0;
-    timeLogIn.clickInterval = [];
+    timeLogIn.date = [];
+    timeLogIn.year = 2018;  
+    timeLogIn.month = 11;
+    timeLogIn.utcDate = [];
+
     timeLogIn.eachClick = [];
-    timeLogIn.timeStart = 0;
-    timeLogIn.timeEnd = 0;
-    timeLogIn.timeSpan = [];
+    timeLogIn.userID=[];
+    timeLogIn.videotime=[];
+    timeLogIn.Arousal = [];
+    timeLogIn.Valence = [];
+    
+    var timeLogIn2 = new Object();
+    timeLogIn2.date = [];
+    timeLogIn2.year = 2018;  
+    timeLogIn2.month = 11;
+    timeLogIn2.utcDate = [];
+
+    timeLogIn2.eachClick = [];
+    timeLogIn2.userID=[];
+    timeLogIn2.videotime=[];
+    timeLogIn2.Arousal = [];
+    timeLogIn2.Valence = [];
+    
+
 
     var gameDemo = new Object();
     gameDemo.trialCount = 1;
@@ -162,7 +181,7 @@ This experiment has been approved by the Ethics Committee at ..... Your data may
 
 <style>
       #instruction
-
+Mo
       {
         font-family: Arial, Helvetica, sans-serif;
         font-size:   15px;
@@ -190,7 +209,7 @@ This experiment has been approved by the Ethics Committee at ..... Your data may
           
     <p class="gamefield", id="instruction"> <br/> Finished? Thanks a lot! Please click ARROW below to start.  <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p>       
     <div class="center" class="gamefield">
-      <button class="btnNEXT" onclick = "pagePivot(9)">❯</button>
+      <button class="btnNEXT" onclick = "pagePivot(2)">Continue ❯</button>
       <br />
       </div> 
        </div> 

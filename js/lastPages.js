@@ -1,3 +1,117 @@
+
+function pageExplain(){
+
+  $(".page3").remove();
+  var arrBtn = new Array();
+  $(".center").remove();
+
+  //Application.init()
+  var page2 = document.createElement('div')
+  page2.classList.add("page2");
+
+  $(".gamefield").append(page2);
+
+  var paragraph = document.createElement("p");
+  var header = document.createElement("h2");
+
+  header.id="name"
+  paragraph.id = 'conditions';
+  header.innerHTML = "Video clips"
+  paragraph.innerHTML = "Please rate the emotion in the clip"+ timeLogIn.Arousal;
+
+  $(".page2").append(header);
+  $(".page2").append(paragraph);
+
+  var ifrm = document.createElement("div");
+    ifrm.classList.add("ifrm");
+    ifrm.id = "myvideo";
+    $(".page2").append(ifrm);
+
+  const player1 =jwplayer("myvideo").setup({
+    
+      //file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
+      //wangwang
+      //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
+      // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
+      // wholemovment
+      file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+      
+      width: 600,
+      height: 404,
+      repeat: true,
+      //aspectratio: '16:9',
+      autostart: false
+    });
+
+  var linechart = document.createElement('div');
+  linechart.id="mylinechart";
+  linechart.classList.add("linechart");
+  $(".gamefield").append(linechart);
+
+  lineplot();
+  
+
+  var btndiv = btnNext('nothing');
+  $(".constant").append(btndiv);
+
+  // logRelay("clearall");
+  // logRelay("trialsLog");
+  // logRelay("mov1");
+
+}
+
+
+function lineplot(){
+
+var m= timeLogIn;
+var a=m.Arousal;
+var v=m.Valence;
+var t=m.videotime;
+
+	trace1 = {
+  type: 'scatter',
+  x: t,
+  y: a,
+  mode: 'lines+markers',
+  name: 'Arousal',
+  line: {
+    color: 'rgb(219, 64, 82)',
+    width: 1
+  },
+  marker:{size:16, color:'rgb(219, 64, 82)'}
+};
+
+trace2 = {
+  type: 'scatter',
+  x: t,
+  y: v,
+  mode: 'lines+markers',
+  name: 'Valence',
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 1
+  },
+  marker:{size:16, color:'rgb(55, 128, 191)'}
+};
+
+var layout = {
+  width: 600,
+  height: 200,
+  margin: {
+    l: 20,
+    r: 20,
+    b: 20,
+    t: 20,
+    pad: -3 
+  },
+};
+
+var data = [trace1, trace2];
+linediv=document.getElementById('mylinechart');
+linediv.id="linechart"
+Plotly.newPlot(linechart, data, layout);
+}
+
 var errorLevel1 = 0;
 var errorLevel2 = 0;
 var errorLevel3 = 0;

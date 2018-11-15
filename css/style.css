@@ -214,8 +214,8 @@ body {
     background-color: black;
     opacity: 0.3;
     color: white;
-    font-size: 2em;
-    width: 2.5em;
+    font-size: 1.5em;
+    width: 7em;
     height: 2.5em;
     transition: margin 100ms;
     margin-left: .75em;
