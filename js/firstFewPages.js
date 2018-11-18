@@ -103,6 +103,38 @@ function btnNext(catchBtn){//****************
 }
 
 
+function btnSave(catchBtn){//****************
+  var btndiv = document.createElement("div");
+  btndiv.classList.add("center");
+  btndiv.appendChild(document.createElement('br'));
+  var aBtn = document.createElement('button');
+  aBtn.innerHTML = 'SaveLogFile';
+  aBtn.classList.add("btnSave");
+  aBtn.addEventListener('click', function () {
+    if (catchBtn === 'nothing'){//********************
+      console.save(timeLogIn,"timelog1.json");
+      console.save(timeLogIn2,"timelog2.json");           
+      }else{
+        lastPage();
+      }
+    });
+  btndiv.appendChild(aBtn);
+  btndiv.appendChild(document.createElement('br'));
+  // console.log(log);
+  // console.log(timeLogIn);
+  return btndiv;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // // function pageCondition(){
 // //   var arrBtn = new Array();
@@ -137,7 +169,7 @@ function beforePrime(){
       
   var paragraph = document.createElement("p");
   paragraph.classList.add("explainRating");
-  paragraph.innerHTML = "You will play a warm-up games for practice, but before that, please watch some videos / animations." + "<br>" + "一会儿有一个热身游戏给您练手，不过请先看如下视频或动画。";
+  paragraph.innerHTML = " Instructions for arousal and valence rating space"+ "<br>" + "You will play a warm-up rating for practice";
   
   $(".page3").append(paragraph);
   // btnNext('nothing')
@@ -147,6 +179,7 @@ function beforePrime(){
 
 //INSTRUCTION Page2
 function beforeexplain(){
+  //downloadObjectAsJson(timeLogIn, exportName);
   $(".page2").remove();
   $(".center").remove();
   
@@ -156,7 +189,7 @@ function beforeexplain(){
       
   var paragraph = document.createElement("p");
   paragraph.classList.add("explainRating");
-  paragraph.innerHTML = "You will listen back to a few short segements, but before that, please watch some videos / animations." + "<br>" + "一会儿有一个热身游戏给您练手，不过请先看如下视频或动画。";
+  paragraph.innerHTML = "You will listen back to a few short segements and review your ratings" + "<br>" + " please explain the ratings.";
   
   $(".page3").append(paragraph);
   // btnNext('nothing')
@@ -216,9 +249,9 @@ function canvasPrepare (gameCondition){
       var ctd = document.createElement("div");
       ctd.id = "ddd"; 
       ctd.classList.add("ddd");
-      ctd.style.position = "absolute";
-      ctd.style.left = "800px";
-      ctd.style.top = "250px";
+      ctd.style.position = "relative";
+      ctd.style.left = "700px";
+      ctd.style.top = "-380px";
       $(".page2").append(ctd);
 
       var canvas_e = document.createElement("canvas");
@@ -253,7 +286,8 @@ function canvasPrepare (gameCondition){
       height: 404,
       repeat: true,
       //aspectratio: '16:9',
-      autostart: false
+      autostart: false,
+      timeSliderAbove:true
     });
     
     function getVideoCurrentime() {
@@ -347,16 +381,32 @@ function canvasPrepare (gameCondition){
   
     function addTimeLog(rating){
 
+    // timeLogObj = new Date();
+
+    // timeLogIn.year = timeLogObj.getUTCFullYear();
+    // timeLogIn.month = timeLogObj.getMonth();
+    // timeLogIn.date = timeLogObj.getUTCDate();
+    // timeLogIn.hour = timeLogObj.getUTCHours();
+    // timeLogIn.sec = timeLogObj.getUTCSeconds();;
+
+    // timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
+    
     timeLogObj = new Date();
+
     timeLogIn.sec = timeLogObj.getUTCSeconds();;
     timeLogIn.min = timeLogObj.getUTCMinutes();;
     timeLogIn.hour = timeLogObj.getUTCHours();;
-    timeLogIn.month = timeLogObj.getMonth();
+    timeLogIn.month = timeLogObj.getUTCMonth()+1;
     timeLogIn.year = timeLogObj.getUTCFullYear();
     timeLogIn.date = timeLogObj.getUTCDate();
     timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
+    
+
+
+    
     var start = new Date ();
-    timeLogIn.Arousal.push();
+
+    //timeLogIn.Arousal.push();
     //timeLogIn.clickInterval.push(clickInterval(level));
     timeLogIn.Arousal.push(rating.Arousal);
     timeLogIn.Valence.push(rating.Valence);

@@ -6,10 +6,10 @@ function pageExplain(){
   $(".center").remove();
 
   //Application.init()
-  var page2 = document.createElement('div')
-  page2.classList.add("page2");
+  var page4 = document.createElement('div')
+  page4.classList.add("page4");
 
-  $(".gamefield").append(page2);
+  $(".gamefield").append(page4);
 
   var paragraph = document.createElement("p");
   var header = document.createElement("h2");
@@ -19,46 +19,106 @@ function pageExplain(){
   header.innerHTML = "Video clips"
   paragraph.innerHTML = "Please rate the emotion in the clip"+ timeLogIn.Arousal;
 
-  $(".page2").append(header);
-  $(".page2").append(paragraph);
+  $(".page4").append(header);
+  $(".page4").append(paragraph);
 
-  var ifrm = document.createElement("div");
-    ifrm.classList.add("ifrm");
-    ifrm.id = "myvideo";
-    $(".page2").append(ifrm);
-
-  const player1 =jwplayer("myvideo").setup({
+  // var ifrm = document.createElement("div");
+  //   ifrm.classList.add("ifrm");
+  //   ifrm.id = "myvideo";
+  //   $(".page2").append(ifrm);
     
-      //file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
-      //wangwang
-      //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
-      // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
-      // wholemovment
-      file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+  // const player1 =jwplayer("myvideo").setup({
+    
+  //     //file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
+  //     //wangwang
+  //     //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
+  //     // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
+  //     // wholemovment
+  //     file:"https://content.jwplatform.com/videos/eToUBrbD-QBzDmDmf.m4a",
       
-      width: 600,
-      height: 404,
-      repeat: true,
-      //aspectratio: '16:9',
-      autostart: false
-    });
-
+  //     width: 600,
+  //     height: 40,
+  //     repeat: true,
+  //     //aspectratio: '16:9',
+  //     autostart: false
+  //   });
+  
+  PB_CMT (6);
   var linechart = document.createElement('div');
   linechart.id="mylinechart";
-  linechart.classList.add("linechart");
+  linechart.classList.add("center");
   $(".gamefield").append(linechart);
 
   lineplot();
   
 
+
   var btndiv = btnNext('nothing');
   $(".constant").append(btndiv);
+
+  var btndiv = btnSave('nothing');
+  $(".constant").append(btndiv);
+
+
 
   // logRelay("clearall");
   // logRelay("trialsLog");
   // logRelay("mov1");
 
 }
+
+
+function PB_CMT (page){
+  
+  var ifrm = document.createElement("iframe");
+  ifrm.id = "myaudio";
+  ifrm.classList.add("center");
+   var para = document.createElement("p");
+   para.classList.add("center");
+   para.id = "displaytimes"; 
+   para.innerHTML = "this is segment " ;
+  // if(page === 5){
+  //   para.innerHTML = "First time. " + " 第一次。";
+  // }else if (page === 6){
+  //   $("#displaytimes").remove();
+  //   para.innerHTML = "Second time. " + " 第二次。";
+  // }
+  	ifrm.setAttribute("src", "https://content.jwplatform.com/players/9las3Az9-vADaJoYF.html");//jwplayer
+    
+    ifrm.style.width = "600px";
+    ifrm.style.height = "40px";
+    ifrm.style.frameborder = "0";
+    ifrm.style.scrolling="auto";
+  
+  $(".gamefield").append(ifrm);
+  $(".gamefield").append(para);
+}
+
+  // <iframe src="https://content.jwplatform.com/players/9las3Az9-vADaJoYF.html" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+
+  // if(gameCondition === "con2"){
+  //   if(page == 5){
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");//jwplayer
+  //   }else{
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/ns8naR5X-WDIJhdqp.html");
+  //   }
+  //   ifrm.style.width = "560px";
+  //   ifrm.style.height = "315px";
+  // }else{
+  //   if(page == 5){
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
+  //   }else{
+  //     ifrm.setAttribute("src", "http://content.jwplatform.com/players/lqCLzPyS-WDIJhdqp.html");//jwplayer
+  //   }
+  //   ifrm.style.width = "560px";
+  //   ifrm.style.height = "315px";
+  //   ifrm.style.frameborder = "0"
+  //   ifrm.style.scrolling="auto"
+  // }
+  // $(".gamefield").append(ifrm);
+  // $(".gamefield").append(para);
+  // console.log($('.btnNEXT'));
+
 
 
 function lineplot(){
@@ -98,17 +158,20 @@ var layout = {
   width: 600,
   height: 200,
   margin: {
-    l: 20,
+    l: 50,
     r: 20,
     b: 20,
     t: 20,
-    pad: -3 
+    pad: 3
   },
+  autosize: false,
+  
 };
 
 var data = [trace1, trace2];
 linediv=document.getElementById('mylinechart');
-linediv.id="linechart"
+linediv.id="linechart";
+
 Plotly.newPlot(linechart, data, layout);
 }
 

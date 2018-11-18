@@ -72,6 +72,11 @@ body {
 .page2{
   text-align: left;
 }
+.page4{
+  text-align: center;
+
+  margin: auto;
+}
 
 .verticalRow {
   display: flex;
@@ -232,8 +237,40 @@ body {
     opacity: 0.5;
   }
 
+
+.btnSave {
+    display: inline-block;
+    line-height: 2.5em;
+    text-align: center;
+    background-color: black;
+    opacity: 0.3;
+    color: white;
+    font-size: 1.5em;
+    width: 7em;
+    height: 2.5em;
+    transition: margin 100ms;
+    margin-left: .75em;
+    border: none;
+}
+.btnSave:hover {
+    background-color: rgba(255, 255, 255, 0.3); 
+    margin-left: 1.25em;
+    color: white;
+    } 
+.btnSave:active {
+    color: black;
+    background: white;
+    opacity: 0.5;
+  }
+
+
 .center {
+
   text-align: center;
+  justify-content: center;
+  left:50%;
+
+
 }
 #mycanvas{
   background: white;
