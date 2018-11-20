@@ -1,16 +1,4 @@
-function addTimeLog(level){
-	var timeLogObj = new Date();
-	timeLogIn.sec = timeLogObj.getUTCSeconds();;
-	timeLogIn.min = timeLogObj.getUTCMinutes();;
-	timeLogIn.hour = timeLogObj.getUTCHours();;
-	timeLogIn.month = timeLogObj.getMonth();
-	timeLogIn.year = timeLogObj.getUTCFullYear();
-	timeLogIn.date = timeLogObj.getUTCDate();
-	timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
-	var start = new Date ();
-	timeLogIn.eachClick.push((start.getTime() % 100000));
-	timeLogIn.clickInterval.push(clickInterval(level));
-}
+
 function clickInterval(level){ //level: game.noteCount
 	// console.log("check: " + level + lastGameLevel)
 	// console.log("check length....." + timeLogIn.eachClick.length)

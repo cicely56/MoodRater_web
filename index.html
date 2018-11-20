@@ -8,6 +8,7 @@
 <script type="text/javascript" language="javascript" src="js/demo.js"></script>
 <script type="text/javascript" language="javascript" src="js/time.js"></script>
 <script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
+<script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
 <!-- <script type="text/javascript" language="javascript" src="js/app.js"></script>
  --><script type="text/javascript" language="javascript" src="js/jwplayer.js"></script>
 <script type="text/javascript" language="javascript" src="js/console-save.js"></script>
@@ -166,6 +167,7 @@
         font-size:   40px;
         font-weight: bold;
         margin-top:  60px;
+
       }
     </style> <!-- header -->
   </div>
@@ -175,25 +177,30 @@
       <div class="gamefield" id="gamefield">
           <div class="Page1" >
               <p class="gamefield">
-                <!-- P52 in https://www.gold.ac.uk/media/documents-by-section/departments/psychology/Gold-MSIv10_Documentation-1.pdf -->
-
-Thank you for agreeing to take part in this experiment. 
-
-<!-- The Music, Mind and Brain group at Queen Mary, University of London, is investigating the a broad range of people in music emotion perceiotion. -->
-
- Your participation in this experiment will greatly help us to discover the influence of individual difference in the music emotion perception. <br/></p>
-
-<p class="gamefield" >You will be asked to complete one questionnaire task and __ segments of musical emotion perception rating (instuctions will follow in next page). Please try to take this test in a quiet room; if possible, use headphones at a comfortable listening level. The whole task takes around 30 minutes and you may take breaks when you reach the instruction screens between tasks. <br/></p>
-<p class="gamefield"> 
-
-This experiment has been approved by the Ethics Committee at ..... Your data may be used in academic journals or selective press releases as part of our overall 􏰀findings, however at no stage will any personally identifying data be made available. If you have any questions about the experiment (or your personal ratings), please do not hesitate to get in touch with Simin Yang (simin.yang@qmul.ac.uk). <br/></p>
+  
+ <p><span style="font-size: 12pt;">You are invited to take part in this research study on&nbsp;<strong>time-varying music emotion perception</strong> in&nbsp;live performance.&nbsp;This study is conducted by Simin Yang from Centre for Digital Music, Queen Mary University of London, as a part of her doctoral research.&nbsp;</span></p>
+<h3><span style="color: #a12f2f;"><strong>Procedures of the study:</strong></span></h3>
+<ul>
+<li><strong><span style="color: #a12f2f;">Task 1:&nbsp;</span>&nbsp;</strong>You'll be asked to watch a video&nbsp;of a live classical music performance recording (17 minutes in length), and to rate the emotion you perceived from the music in the meantime using a two-dimension space:&nbsp;Valence (happy-sad continuum) and Arousal (excited-relaxed continuum) (More details in next page). You&nbsp;may pause the video player or play it back if needed.&nbsp;</li>
+<li><span style="color: #a12f2f;"><strong>Task 2:</strong> </span>You will be asked to review 9 short segments selected from the recording, as well as your emotion ratings within the segments, and then to write down the reason behind&nbsp;your&nbsp;rating.&nbsp;</li>
+<li><span style="color: #a12f2f;"><strong>Task 3:</strong> </span>You will be asked to complete one questionnaire about your music preference and experience in the end.&nbsp;</li>
+</ul>
+<h3><span style="color: #a12f2f;"><strong>Instructions:</strong></span></h3>
+<ul>
+<li>Please fill in your <strong>ID</strong> at the bottom of this page before starting the experiment, and fill in the <strong>SAME ID</strong> on the questionnaire page.</li>
+<li>Please use headphones at your comfortable listening level.</li>
+<li>The whole task takes around 50 minutes and you may take breaks between tasks.</li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="font-size: 9pt;">This experiment has been approved by the Ethics Committee at ..... Your data may be used in academic journals or selective press releases as part of our overall 􏰀findings, however at no stage will any personally identifying data be made available. If you have any questions about the experiment (or your personal ratings), please do not hesitate to get in touch with Simin Yang (simin.yang@qmul.ac.uk).</span></p>
+                       
 
 <style>
       #instruction
 Mo
       {
         font-family: Arial, Helvetica, sans-serif;
-        font-size:   15px;
+        font-size:   40px;
         font-weight: bold;
         margin-top:  20px;
       }
@@ -207,16 +214,15 @@ Mo
 
                 Please watch the video and rate the emotion you perceived at the same time. Please do this in a quiet place and better with a headphone, and fullscreen your browser. This is really important if you want to help us on this project. <br/> 游戏开始前， 可能会有两段视频或者动画， 之后是一个游戏热身，可以重复练习。在这之后游戏开始。请找一个安静的地方玩，最好带着耳机，全屏浏览器。这会帮助我们获得更好的数据质量。</p> -->
               
-      <p class="gamefield", id="instruction"> Click the "ID" button below to input your username. Please keep this ID in mind for a while for later use. Then please click on the "Questionnaire" to finish the survey"   <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p> 
+      <p class="gamefield", id="instruction"> Click the "ID" button below to input your username. Please click Continue below to start.   <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p> 
               
-              <form class="user-input">
-                <input type="button" value="ID" onclick="saveUserID()"/>
-                <input type="button" value="Questionnaire" onclick="openWin()"/>
-              </form>
+       <form class="user-input">
+            <input type="button" value="ID" onclick="saveUserID()"/>
+       </form>
               
               <!-- <br /> -->
           
-    <p class="gamefield", id="instruction"> <br/> Finished? Thanks a lot! Please click ARROW below to start.  <!-- 点击“ID”输入您的姓名或网名,一会儿要用所以请暂时记住。 --></p>       
+   
     <div class="center" class="gamefield">
       <button class="btnNEXT" onclick = "pagePivot(2)">Continue ❯</button>
       <br />

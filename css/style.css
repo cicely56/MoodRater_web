@@ -2,15 +2,24 @@
 /*@import url(font-awesome.min.css);*/
 @import url("https://fonts.googleapis.com/css?family=Signika:300,700");
 
+textarea {
+  width: 30; 
+}
+
+
+
+
+
 body {
   
   background-color: #656565;/*#7b8b71/**/
   color: #e5e3dc;
-  /*background-color: #020B13;
-  color: #c0c2c4;*/
+/*  background-color: #020B13;*/
+/*  color: #c0c2c4;*/
   /*background-color: #362632;
   color: #e5e3dc;*/
   font-family: 'Muli', sans-serif;
+
 }
 :root {
   --gamebutton-c1: #1f1f1f; 
@@ -18,6 +27,16 @@ body {
   --gamebutton-c3: #8f8f8f;
   --gamebutton-c4: #c7c7c7;
   --gamebutton-c5: #ffffff;
+}
+
+
+.commentdiv{
+  /*width: 130px; */
+
+
+
+  font-weight: normal; 
+  color: black;
 }
 
 .backgroundRect{
@@ -73,8 +92,7 @@ body {
   text-align: left;
 }
 .page4{
-  text-align: center;
-
+  text-align: left;
   margin: auto;
 }
 
@@ -195,7 +213,7 @@ body {
   transition: 500ms;
 }
 .name-input {          /*2017.4.13 afternoon*/
-  font-size: 2em;
+  font-size: 4em;
   text-align: center;
 }
 .btn-sett:hover {
@@ -211,6 +229,7 @@ body {
   top: 320;
 
 }
+
 
 .btnNEXT {
     display: inline-block;

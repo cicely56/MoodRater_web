@@ -91,7 +91,7 @@ function sendLog(log) {
 }
 
 function saveUserID(){
-  var userid = prompt("Enter your name : ", "your name here");
+  var userid = prompt("Enter your username : ", "your username here");
   if(userid != null){
     game.userID = userid;
   }else{
