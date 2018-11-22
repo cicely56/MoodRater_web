@@ -47,6 +47,14 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
+.explainheader {
+  color: #a12f2f;
+  /*text-shadow: 1px 1px 0.3px #e5e3dc;*/
+  
+}
+
+
+
 .gamefield {
   max-width: 1000px;
   margin: 20px auto;
@@ -62,6 +70,10 @@ body {
 }
 .user-input input[type ="button"]:hover{
   background: #2c0609;
+}
+.user-input input[type ="text"]{
+
+  color: #666666;
 }
 .invisible{
   background: transparent;

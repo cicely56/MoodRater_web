@@ -5,6 +5,136 @@ function openWin() {
 }
 
 
+function saveID(){
+  var userid = document.getElementById("useridinput")
+  if(userid != null){
+    game.userID = userid.value;
+  }else{
+    game.userID = 'star';
+  }
+  console.log("User ID: ", game.userID)
+}
+
+
+
+function lineplotandcmes(lineplotID){
+
+  d3 = Plotly.d3;
+  var m= timeLogIn;
+  var a=m.Arousal;
+  var v=m.Valence;
+  var t=m.videotime;
+   
+  var time1=0;
+  var time2=51;
+  trace1 = {
+    type: 'scatter',
+    x: t,
+    y: a,
+    mode: 'lines+markers',
+    name: 'Arousal',
+    line: {
+      dash: 'dot',
+      shape: 'hv',
+      color: 'rgb(219, 64, 82)',
+      width: 1
+    },
+    marker:{size:16, color:'rgb(219, 64, 82)'}
+  };
+
+  trace2 = {
+    type: 'scatter',
+    x: t,
+    y: v,
+    mode: 'lines+markers',
+    name: 'Valence',
+    line: {
+      dash: 'dot',
+      shape: 'hv',
+      color: 'rgb(55, 128, 191)',
+      width: 1
+    },
+    marker:{size:16, color:'rgb(55, 128, 191)'}
+  };
+
+  var layout = {
+      width: 600,
+      height: 240,
+      margin: {
+      l: 78,
+      r: 20,
+      b: 40,
+      t: 10,
+      pad: 0
+    },
+    
+    autosize: true,
+    xaxis: {
+      title: 'Time',
+      
+      range:[time1,time2]
+      
+      
+    },
+   yaxis: {
+      title: 'Emotion Rating Value',
+      // range:[0 1]
+     
+      range:[0,1]
+    },
+  };
+
+  var data = [trace1, trace2];
+ 
+
+ Plotly.newPlot(lineplotID, data, layout);
+ var myPlot = document.getElementById(lineplotID);
+ 
+comment= new Object;
+var game =new Object;
+
+game.userid=[];
+game.useridlist=[];
+game.pointlist=[];
+game.indexlist=[];
+
+myPlot.on('plotly_click', function(data){
+    var pts = '';
+    var ptsx= [];
+    var ptsy= [];
+    var ptidx=[];
+    
+    for(var i=0; i < data.points.length; i++){
+        pts = 'time= '+data.points[i].x.toPrecision(2) +'sec as\n\nArousal = '+
+            a[data.points[i].pointNumber]+"\nValence ="+ v[data.points[i].pointNumber] +'\nEmotion Tags = dark'+ '\n\n';
+      ptsx= data.points[i].x;
+      //ptidx=data.points[i].y.id;   
+    }
+    
+    confirm('You rated the emotion of the music at '+pts+"\n\n Do you want to confirm the rating? ");
+  
+  
+  var userid = prompt("Enter your reason for this rating point : ", "");
+  if(userid != null){
+    game.userID = userid;
+  }else{
+    game.userID = 'star';
+  }
+  console.log("User ID: ", game.userID);
+  
+  game.useridlist.push(game.userID);
+  game.pointlist.push(ptsx);
+  game.indexlist.push(ptidx);
+
+  
+  
+}
+  
+);
+comment.game1=game;
+
+}
+
 
 function logRelay(command){
   if (command === 'trialsLog'){

@@ -1,5 +1,8 @@
 
 function pageExplain(){
+$(".page2").remove();
+  $(".center").remove();
+
 
   $(".page3").remove();
   var arrBtn = new Array();
@@ -19,10 +22,28 @@ function pageExplain(){
   paragraph.id = 'conditions';
   task.id="task";
   task.innerHTML="Task 2"
+  
   header.innerHTML = "Segment 1"
-  paragraph.innerHTML = "We would like to know what music features led to some emotion ratings you have just made. "+ "<br>" +
-" <b>1.  Please listen to the segment again and review your emotion ratings.</b>" + "<br>" +
-  "<b>2.  Afterwards, please write down the reason behind your every rating in the right side.</b>";
+  paragraph.innerHTML = "Please confirms your ratings, and provide the reasons behind your choices. You will be asked to do this for the ratings in nine segments."+"We would like to know what music features led to some emotion ratings you have just made. "+ "<br>" +
+	"  1. Please listen to the segment again and review your emotion ratings.</b>" 
+	+ "<br>" +
+ 	"  2. Click on each rating to raise a pop-up window where you can confirm that rating."
+ 	+"<br>" +
+ 	"  3. Once confirmed, another window will pop up asking for the reason behind the rating."
+ 	+"<br>" +"<br>" +
+ 	"Examples of possible reasons might be:"
+ 	+"<br>" +
+"	• it sounds dark"
++"<br>" +
+"	• there are lots of things happening"
++"<br>" +
+"	• the melody is rising and uplifting"
++"<br>" +
+"	• the harmonies sound very tense"
++"<br>" +
+"	• ..."
++"<br>" +
+"There is no right or wrong answer on your reason. Please let us know as much as possible."
   //timeLogIn.Arousal;
 
    $(".page4").append(task);
@@ -58,22 +79,43 @@ function pageExplain(){
 
  PB_CMT ("myaudio1");
 
-	var linechart1 = document.createElement('div');
+var linechart1 = document.createElement('div');
   linechart1.id="mylinechart1";
   //linechart1.classList.add("center");
   $(".page4").append(linechart1);
 
-  lineplot("mylinechart1");
+  //lineplot("mylinechart1");
+  lineplotandcmes("mylinechart1");
   
-	var coment1 = document.createElement("div");
-    //coment1.classList.add("page4");
-    coment1.id = "mycoment1";
-    coment1.style.position = "relative";
-    coment1.style.left = "650px";
-    coment1.style.top = "-250px";
-    $(".page4").append(coment1);
+	// var coment1 = document.createElement("div");
+ //    //coment1.classList.add("page4");
+ //    coment1.id = "mycoment1";
+ //    coment1.style.position = "relative";
+ //    coment1.style.left = "650px";
+ //    coment1.style.top = "-250px";
+ //    coment1.style.marginBottom= "-200px";
+ //    //coment1.style.margin-bottom: "-250px";
 
-	commentsforrating ("mycoment1");
+ //    $(".page4").append(coment1);
+
+	// commentsforrating ("mycoment1");
+
+
+	var audioclip2 = document.createElement('div');
+  	audioclip2.id="myaudio2";
+  	//audioclip1.classList.add("page4");
+  	$(".page4").append(audioclip2);
+
+ 	PB_CMT ("myaudio2");
+
+	// var linechart2 = document.createElement('div');
+ //  linechart2.id="mylinechart2";
+ //  //linechart1.classList.add("center");
+ //  $(".page4").append(linechart2);
+
+ //  lineplotandcmes("mylinechart2");
+
+ //lineplotandcomments("mylinechart2");
 
 
     
@@ -107,10 +149,10 @@ function pageExplain(){
 function PB_CMT (auidoID){
 
   var audiodiv= document.getElementById(auidoID);
-  audiodiv.id="myaudio"
+
+   audiodiv.id="myaudio"
   //var ifrm = document.createElement("div");
  // ifrm.id = "myaudio";
-
 
   //player
 
@@ -257,68 +299,68 @@ function commentsforrating (commentID) {
 
 function lineplot(linechartID){
 
-var m= timeLogIn;
-var a=m.Arousal;
-var v=m.Valence;
-var t=m.videotime;
- 
-var time1=0;
-var time2=51;
-trace1 = {
-  type: 'scatter',
-  x: t,
-  y: a,
-  mode: 'lines+markers',
-  name: 'Arousal',
-  line: {
-  	dash: 'dot',
-  	shape: 'hv',
-    color: 'rgb(219, 64, 82)',
-    width: 1
-  },
-  marker:{size:16, color:'rgb(219, 64, 82)'}
-};
+	var m= timeLogIn;
+	var a=m.Arousal;
+	var v=m.Valence;
+	var t=m.videotime;
+	 
+	var time1=0;
+	var time2=51;
+	trace1 = {
+	  type: 'scatter',
+	  x: t,
+	  y: a,
+	  mode: 'lines+markers',
+	  name: 'Arousal',
+	  line: {
+	  	dash: 'dot',
+	  	shape: 'hv',
+	    color: 'rgb(219, 64, 82)',
+	    width: 1
+	  },
+	  marker:{size:16, color:'rgb(219, 64, 82)'}
+	};
 
-trace2 = {
-  type: 'scatter',
-  x: t,
-  y: v,
-  mode: 'lines+markers',
-  name: 'Valence',
-  line: {
-  	dash: 'dot',
-  	shape: 'hv',
-    color: 'rgb(55, 128, 191)',
-    width: 1
-  },
-  marker:{size:16, color:'rgb(55, 128, 191)'}
-};
+	trace2 = {
+	  type: 'scatter',
+	  x: t,
+	  y: v,
+	  mode: 'lines+markers',
+	  name: 'Valence',
+	  line: {
+	  	dash: 'dot',
+	  	shape: 'hv',
+	    color: 'rgb(55, 128, 191)',
+	    width: 1
+	  },
+	  marker:{size:16, color:'rgb(55, 128, 191)'}
+	};
 
-var layout = {
-  	width: 600,
-  	height: 240,
-  	margin: {
-    l: 78,
-    r: 20,
-    b: 40,
-    t: 10,
-    pad: 0
- 	},
-  
-  autosize: true,
-  xaxis: {
-    title: 'Time',
-    
-    range:[time1,time2]
-    
-    
-  },
- yaxis: {
-    title: 'Emotion Rating Value',
-    // range:[0 1]
-   
-    range:[0,1]
-  },
+	var layout = {
+	  	width: 600,
+	  	height: 240,
+	  	margin: {
+	    l: 78,
+	    r: 20,
+	    b: 40,
+	    t: 10,
+	    pad: 0
+	 	},
+	  
+	  autosize: true,
+	  xaxis: {
+	    title: 'Time',
+	    
+	    range:[time1,time2]
+	    
+	    
+	  },
+	 yaxis: {
+	    title: 'Emotion Rating Value',
+	    // range:[0 1]
+	   
+	    range:[0,1]
+	  },
  // legend: {
  //  	x=0,
 	// y=1,
@@ -329,16 +371,15 @@ var layout = {
 	// }
 };
 
-var data = [trace1, trace2];
+	var data = [trace1, trace2];
 
 
 
-linediv= document.getElementById(linechartID);
+	linediv= document.getElementById(linechartID);
 
-linediv.id="linechartforplotyly";
+	//linediv.id="linechartforplotyly";
 
-return Plotly.newPlot("linechartforplotyly", data, layout,{responsive: false});
-
+	return Plotly.newPlot(linechartID, data, layout,{responsive: false});
 
 
 }
@@ -405,31 +446,34 @@ function lastPage(){
 
 
 	//******************
-	$(".center").remove();
+	//
 	$(".page4").remove();
-	
+	$(".center").remove();
+
+
+
 	//var arrBtn = new Array();
 	clearElements();
 	// document.body.style.backgroundColor = '#362632';
 	var page5 = document.createElement('div')
   	page5.classList.add("page5");
-
    	$(".gamefield").append(page5);
 
-	var last = document.createElement('div')
-    last.classList.add("page5");
-    last.id = "lastPage";
-    $(".page5").append(last);
+	// var last = document.createElement('div')
+ //   	last.classList.add("page5");
+ //   	last.id = "lastPage";
+ //    $("page5").append(last);
 
     var paragraph1 = document.createElement("p");
     var paragraph2 = document.createElement("p");
 	paragraph1.id = 'lastPara';
 	paragraph2.id = 'lastPara';
 	paragraph1.innerHTML = "Thank you very much for your participation." ;
-	paragraph2.innerHTML = "Could you please give us your valuable feedback by filling following questionnaire:" ;
+	paragraph2.innerHTML = "Could you please give us your valuable feedback by filling following questionnaire:" 
+	+ "<br>" +"Please type in your ID: "+game.userID+" in the questionniare."
 	paragraph2.style.fontSize = '15px';
-	$(last).append(paragraph1);
-	$(last).append(paragraph2);
+	$(".page5").append(paragraph1);
+	$(".page5").append(paragraph2);
 
 	// var btnRow = createRow('horizontal');
 	// $(last).append(btnRow);
@@ -438,9 +482,10 @@ function lastPage(){
   	aBtn.innerHTML = 'Questionnaire';
   	aBtn.classList.add("button");
  	aBtn.addEventListener('click', function () {
-    	linkTo ('outSide', "con2");
+ 		openWin();
+    	//linkTo ('outSide', "con2");
     });
-    $(last).append(aBtn);
+    $(".page5").append(aBtn);
 
   //   var aBtn2 = document.createElement('button');
   // 	aBtn2.innerHTML = '问卷（中国大陆)';

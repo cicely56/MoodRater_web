@@ -4,10 +4,11 @@
 var page = 3;
 
 
-function pagePivot(pageIndex_static){
+function pagePivot(pageIndex_static){ 
     // console.log(pageIndex, page);
     switch(pageIndex_static) {
     case 2:
+      saveID();
       beforePrime();
       break;
     case 3:
@@ -29,19 +30,19 @@ function pagePivot(pageIndex_static){
       primePrepare(gameCondition);
       break;
     case 5:
-      beforeexplain();
-      break;
-    case 6:
       pageExplain();
       break;
+    case 6:
+      lastPage();
+      break;
     case 7:
-     lastPage();
+     
       break;
     case 8:
       newGame();
       break;
     case 9:
-      pageRating();
+      beforeexplain();
       break; 
     case 10:
       pageRating();
@@ -164,18 +165,24 @@ function beforePrime(){
    $(".gamefield").append(page3);
   
   var header = document.createElement("h2");
+  header.classList.add("explainheader");
   header.id="name"
+  
+
   var paragraph = document.createElement("p");
   paragraph.classList.add("explainRating");
   paragraph.id = 'va_instruction';
   header.innerHTML = "How to use the Mood Rater"
-  paragraph.innerHTML = "<b>1. Please rate the emotion that you perceive in the music according to how Arousal(Exciting/Calm) and Valence(Positive/Negative) it is.</b>"
-  + "<br>" +
-  "<b> 2.  You can send a new emotion rating of your perceived emotion whenever you notice a change.</b>" 
+  paragraph.innerHTML = "1. The Mood Rater consists of an interface for rating emotions in valence-arousal space."+ "<br>" 
+  + "<br>" + "<i>Definitions: Valence refers to the intrinsic positive/negative nature of the emotion; arousal refers to the degree of excitation. For example, overjoyed would be positive valence and high arousal, angry would be negative valence and high arousal, and depressed would be negative valence and low arousal. </i> "+ "<br>" +  "<br>" + "See diagram below for further examples."
+
+var paragraph1_2 = document.createElement("p");
+  paragraph1_2.classList.add("explainRating");
+  paragraph1_2.id = 'va_instruction2';
+  paragraph1_2.innerHTML ="<br>" + " 2. Click on any part of the Mood Rater interface to send an emotion rating whenever a change is noted. " 
  + "<br>" +
-  "<b> 3.  Please note that by reporting PERCEIVED EMOTION of music, we wish you to report the emotion the music is communicating to you, not the emotional feelings that are induced by the music -  e.g the music is portraying a happy emotion, not that it makes you feel happy. </b>"
-  +"</br>"+
-  "Please find below a explanatory picture for Valance Arousal emotion model"
+  "3. You are asked to report the<b> PERCEIVED EMOTION </b> . We are interested in the emotion the music is communicating, not the felt emotions. For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. "
+ 
   
   var va_pic = document.createElement('div')
 
@@ -196,16 +203,19 @@ function beforePrime(){
   $(".page3").append(paragraph);
   
   $(".page3").append(va_pic);
+  $(".page3").append(paragraph1_2);
+
 
   var header2 = document.createElement("h2");
     header2.id="name2"
+    header2.classList.add("explainheader");
   var paragraph2 = document.createElement("p");
     paragraph2.classList.add("explainRating");
     paragraph2.id = 'va_instruction2';
-    header2.innerHTML = "Mood Rater Warm-up"
-    paragraph2.innerHTML = "<b>1. Before the experiment, you can play with the Mood Rater with a trial video"
+    header2.innerHTML = "Mood Rater Trial"
+    paragraph2.innerHTML = "1. Before the experiment, you can play with the Mood Rater while viewing a test video."
     + "<br>" +
-    "<b> 2.  As you will notice when you click on the Mood Rater:  some emotion tags will pop up.  We added those tags as a rating feedback, but it's just for reference, if you do not agree with these tags, feel free to use the Arousal- Valence space in your own way.</b>" 
+    " 2. When you click on the Mood Rater: some emotion tags will pop up for rating feedback. Do not worry if you do not agree with these tags; they are only a guide. Please feel free to use the valence-arousal space in your own way." 
    
   $(".page3").append(header2);
   $(".page3").append(paragraph2);
@@ -231,6 +241,7 @@ function beforePrime(){
         ctd.style.position = "relative";
         ctd.style.left = "700px";
         ctd.style.top = "-380px";
+        ctd.style.marginBottom = "-300px";
         $(".page3").append(ctd);
 
         var canvas_e = document.createElement("canvas");
@@ -472,8 +483,9 @@ function pageRating(){
   header.id="name"
   paragraph.id = 'conditions';
   header.innerHTML = "Task 1: "
-  paragraph.innerHTML = "Please rate the emotion in the recording: Movement 1 (11 minutes) and Movement 2 (6 minutes) of"
-  +" <i> Piano Trio in F# minor by Arno Babajanian (1921 - 1983)</i>" + " You may take a break between movements by pausing the video player.";
+  header.classList.add("explainheader");
+
+  paragraph.innerHTML = "Please rate in valence-arousal space the emotion perceived whilst watching the video recording of a performance of" +" <i> Arno Babajanian’s Piano Trio in F# minor</i>. " + " The video comprises of two movements of the trio: the first is 11 minutes long, and the second 6 minutes. You may pause the video at any time to take a break."
 
   $(".page2").append(header);
   $(".page2").append(paragraph);
@@ -482,10 +494,10 @@ function pageRating(){
 
   var btndiv = btnNext('nothing');
   $(".constant").append(btndiv);
-
-  logRelay("clearall");
-  logRelay("trialsLog");
-  logRelay("mov1");
+  
+  // logRelay("clearall");
+  // logRelay("trialsLog");
+  // logRelay("mov1");
 
 }
 
@@ -511,6 +523,7 @@ function canvasPrepare (gameCondition){
       ctd.style.position = "relative";
       ctd.style.left = "700px";
       ctd.style.top = "-380px";
+      ctd.style.marginBottom = "-300px";
       $(".page2").append(ctd);
 
       var canvas_e = document.createElement("canvas");
