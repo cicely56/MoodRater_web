@@ -5,6 +5,60 @@ function openWin() {
 }
 
 
+function vatagsplot(divID) {
+  
+  var trace1 = {
+  x: [0.18 ,0.30 ,0.32 ,0.33 ,0.33 ,0.35 ,0.40 ,0.42 ,0.43 ,0.45 ,0.49 ,0.53 ,0.54 ,0.58 ,0.59 ,0.72 ,0.72 ,0.73 ,0.75 ,0.77 ,0.78 ,0.79 ,0.79 ,0.80 ,0.81 ,0.82 ,0.83 ,0.83 ,0.84 ,0.85 ,0.85 ,0.85 ,0.85 ,0.86 ,0.87 ,0.89 ,0.89 ,0.90 ,0.91 ,0.92 ,0.93],
+  y: [0.46 ,0.72 ,0.80 ,0.66 ,0.62 ,0.37 ,0.57 ,0.42 ,0.47 ,0.58 ,0.29 ,0.77 ,0.36 ,0.62 ,0.44 ,0.57 ,0.47 ,0.55 ,0.40 ,0.54 ,0.27 ,0.64 ,0.51 ,0.61 ,0.36 ,0.65 ,0.50 ,0.60 ,0.46 ,0.78 ,0.73 ,0.66 ,0.64 ,0.32 ,0.74 ,0.69 ,0.82 ,0.71 ,0.72 ,0.84 ,0.80 ],
+  mode: 'markers+text',
+  type: 'scatter',
+  name: 'emotion tags',
+  text: ["sad","hostile","angry","difficult","harsh","messy","hungry","weary","detached","cold","lazy","anxious","reserved","complex","reverent","warm","innocent","smooth","calm","tender","relaxed","hopeful","soft","lively","gentle","silly","elegant","bright","carefree","intimate","ambitious","sweet","thoughtful","peaceful","party","confident","sexy","cheerful","happy","romantic","fun"],
+  textposition: 'top center',
+  textfont: {
+    family:  'Raleway, sans-serif',
+    size:10
+  },
+  marker: { size: 12 }
+  };
+
+  var data = [trace1];
+
+  var layout = { 
+    width: 600,
+      height: 600,
+      margin: {
+      l: 100,
+      r: 100,
+      b: 100,
+      t: 100,
+      pad: 0,
+    },
+  xaxis: {
+    title: "Valence",
+    range: [ 0, 1 ] 
+  },
+  yaxis: {
+    title: "Arousal",
+    range: [0, 1]
+  },
+  legend: {
+    y: 0.5,
+    yref: 'paper',
+    font: {
+      family: 'Arial, sans-serif',
+      size: 20,
+      color: 'grey',
+    }
+  },
+  title:'Emotion tags in Valence-Arousal space'
+  }
+
+  Plotly.newPlot(divID, data, layout);
+
+}
+
+
 function saveID(){
   var userid = document.getElementById("useridinput")
   if(userid != null){

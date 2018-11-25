@@ -184,7 +184,18 @@ var paragraph1_2 = document.createElement("p");
   "3. You are asked to report the<b> PERCEIVED EMOTION </b> . We are interested in the emotion the music is communicating, not the felt emotions. For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. "
  
   
+var va_pic2= document.createElement('div')
+
+  va_pic2.id="myimage2";
+  va_pic2.classList.add("center");
+
+  vatagsplot(va_pic2);
+   va_pic2.style.position = "relative";
+  va_pic2.style.left = "200px";
+  // va_pic2.appendChild(bigImg);
+
   var va_pic = document.createElement('div')
+ 
 
   va_pic.id="myimage";
   va_pic.classList.add("center");
@@ -201,8 +212,9 @@ var paragraph1_2 = document.createElement("p");
   
   $(".page3").append(header);
   $(".page3").append(paragraph);
-  
+  $(".page3").append(va_pic2);
   $(".page3").append(va_pic);
+
   $(".page3").append(paragraph1_2);
 
 
