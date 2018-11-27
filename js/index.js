@@ -5,7 +5,7 @@ function openWin() {
 }
 
 
-function vatagsplot(divID) {
+function vatagsplot2(divID) {
   
   var trace1 = {
   x: [0.18 ,0.30 ,0.32 ,0.33 ,0.33 ,0.35 ,0.40 ,0.42 ,0.43 ,0.45 ,0.49 ,0.53 ,0.54 ,0.58 ,0.59 ,0.72 ,0.72 ,0.73 ,0.75 ,0.77 ,0.78 ,0.79 ,0.79 ,0.80 ,0.81 ,0.82 ,0.83 ,0.83 ,0.84 ,0.85 ,0.85 ,0.85 ,0.85 ,0.86 ,0.87 ,0.89 ,0.89 ,0.90 ,0.91 ,0.92 ,0.93],
@@ -54,6 +54,132 @@ function vatagsplot(divID) {
   title:'Emotion tags in Valence-Arousal space'
   }
 
+  Plotly.newPlot(divID, data, layout);
+
+}
+
+
+function vatagsplot42(divID) {
+  var trace1 = {
+  x: [0.375,0.66,0.6925,-0.5175,-0.5175,0.0625,0.775,0.4325,0.655,0.4825,0.53,0.395,0.6025,-0.4625,0.55,-0.155,0.6525,0.3775,0.8425,-0.245,0.625,0.755,-0.3025,0.6625,-0.8475,0.83,0.0875,-0.03,0.5,0.715,-0.355,-0.5675,0.525,0.8025,0.5775,0.6075,-0.285,0.745,0.635,-0.0475,-0.5375],
+  y: [0.035,0.24,-0.5325,0.15,0.24,0.155,0.34,-0.35,0.3925,-0.03,-0.0925,-0.0225,0.22,-0.415,0.1325,-0.5875,0.495,-0.1975,0.555,0.0475,0.1,0.59,-0.2975,0.18,-0.2175,0.6475,-0.25,-0.4325,-0.6525,0.4225,0.0325,0.36,0.195,0.3725,-0.4475,-0.1175,-0.185,0.305,-0.2075,0.48,0.5425 ],
+  mode: 'markers+text',
+  type: 'scatter',
+  name: 'emotion tags',
+  text: ["warm","sweet","peaceful","harsh","difficult","complex","cheerful","calm","ambitious","tender","soft","smooth","silly","messy","lively","lazy","intimate","innocent","fun","cold","bright","sexy","weary","thoughtful","sad","romantic","reverent","reserved","relaxed","party","hungry","hostile","hopeful","happy","gentle","elegant","detached","confident","carefree","anxious","angry"],
+  textposition: 'top center',
+  textfont: {
+    family:  'Raleway, sans-serif',
+    size:10
+  },
+  marker: { size: 12 ,
+          color: "rgb(182, 185, 191)"}
+  };
+
+  var data = [trace1];
+
+  var layout = { 
+    width: 600,
+      height: 600,
+      margin: {
+      l: 100,
+      r: 100,
+      b: 100,
+      t: 100,
+      pad: 0,
+    },
+  xaxis: {
+    title: "Valence",
+    range: [ -1, 1 ],
+    zeroline: true,
+     showline: true,
+    linewidth: 3,
+    zerolinewidth: 1, 
+    
+  },
+  yaxis: {
+    title: "Arousal",
+    range: [-1, 1],
+    zeroline: true,
+     showline: true,
+    linewidth: 3,
+    zerolinewidth: 1
+  },
+  legend: {
+    y: 0.5,
+    yref: 'paper',
+    font: {
+      family: 'Arial, sans-serif',
+      size: 20,
+      color: 'grey',
+    }
+  },
+  title:'Emotion tags in Valence-Arousal space'
+  }
+   
+  Plotly.newPlot(divID, data, layout);
+
+}
+
+function vatagsplot18(divID) {
+  var trace1 = {
+  x: [-0.8475,-0.5375,-0.5175,-0.0475,-0.03,0.0625,0.0875,0.375,0.3775,0.4825,0.5,0.625,0.66,0.6925,0.8025,0.525,0.65,-0.5125],
+  y: [-0.2175,0.5425,0.15,0.48,-0.4325,0.155,-0.25,0.035,-0.1975,-0.03,-0.6525,0.1,0.24,-0.5325,0.3725,0.195,0.54,-0.5425],
+  mode: 'markers+text',
+  type: 'scatter',
+  name: 'emotion tags',
+  text: ["sad","angry","harsh","anxious","reserved","complex","reverent","warm","innocent","tender","relaxed","bright","sweet","peaceful","happy","hopeful","excite","bored"],
+  textposition: 'top center',
+   hoverinfo: 'text',
+  textfont: {
+    family:  'Raleway, sans-serif',
+    size:10
+  },
+  marker: { size: 12 ,
+          color: "rgb(182, 185, 191)"}
+  };
+
+  var data = [trace1];
+
+  var layout = { 
+    width: 600,
+      height: 600,
+      margin: {
+      l: 100,
+      r: 100,
+      b: 100,
+      t: 100,
+      pad: 0,
+    },
+  xaxis: {
+    title: "Valence",
+    range: [ -1, 1 ],
+    zeroline: true,
+     showline: true,
+    linewidth: 3,
+    zerolinewidth: 1, 
+    
+  },
+  yaxis: {
+    title: "Arousal",
+    range: [-1, 1],
+    zeroline: true,
+     showline: true,
+    linewidth: 3,
+    zerolinewidth: 1
+  },
+  legend: {
+    y: 0.5,
+    yref: 'paper',
+    font: {
+      family: 'Arial, sans-serif',
+      size: 20,
+      color: 'grey',
+    }
+  },
+  title:'Emotion tags in Valence-Arousal space'
+  }
+   
   Plotly.newPlot(divID, data, layout);
 
 }
