@@ -12,8 +12,10 @@ textarea {
 
 body {
   
-  background-color: #656565;/*#7b8b71/**/
-  color: #e5e3dc;
+  /*background-color: #656565;*//*#7b8b71/**/
+  background-color: #d2d3d5;
+  /*color: #e5e3dc;*/
+  color: #231f20;  /*#919296 IS the more Grey COLOR*/
 /*  background-color: #020B13;*/
 /*  color: #c0c2c4;*/
   /*background-color: #362632;
@@ -41,14 +43,15 @@ body {
 
 .backgroundRect{
   width: 100%;
-  background: rgba(255,255,255,0.1);
+  /*background: rgba(255,255,255,0.1);*/
+  background: #f2f2f2;
   background-position: center;
   margin-bottom: 30px;
   padding: 20px 20px 20px 20px;
 }
 
 .explainheader {
-  color: #a12f2f;
+  color: #b50c0c;
   /*text-shadow: 1px 1px 0.3px #e5e3dc;*/
   
 }
@@ -83,7 +86,7 @@ body {
   background: #E27575;
   border: none;
   padding: 10px 25px 10px 25px;
-  color: #FFF;
+  color: white;
   border-radius: 3px;
   text-shadow: 1px 1px 1px #9E3F3F;
   cursor: pointer;
@@ -248,7 +251,7 @@ body {
     line-height: 2.5em;
     text-align: center;
     background-color: black;
-    opacity: 0.3;
+    opacity: 0.4;
     color: white;
     font-size: 1.5em;
     width: 7em;
