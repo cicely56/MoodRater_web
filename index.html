@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8" http-equiv="Content-Type" content="text/html;">
-<title>game</title>
-  
+<title>Mood Rater</title>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.2.0/bootbox.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/bootbox.js"></script>
 <script type="text/javascript" language="javascript" src="js/index.js"></script>
 <script type="text/javascript" language="javascript" src="js/firstFewPages.js"></script>
 <script type="text/javascript" language="javascript" src="js/demo.js"></script>
 <script type="text/javascript" language="javascript" src="js/time.js"></script>
 <script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
 
-<script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
-<!-- <script type="text/javascript" language="javascript" src="js/app.js"></script>
- --><script type="text/javascript" language="javascript" src="js/jwplayer.js"></script>
+<!-- <script type="text/javascript" language="javascript" src="js/bootbox.min.js"></script>
+ -->
+
+<!-- <script type="text/javascript" language="javascript" src="js/jwplayer.js"></script> -->
+
+ <script src="https://content.jwplatform.com/libraries/IK96BRJn.js"></script>
+
 <script type="text/javascript" language="javascript" src="js/console-save.js"></script>
+
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <!-- <script src="https://myctvbox.appspot.com/static/jwplayer/jwplayer.js"></script> -->
@@ -23,13 +31,13 @@
 <!-- 
 <script src="https://content.jwplatform.com/libraries/WDIJhdqp.js"></script>
  -->
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
 
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <link rel="stylesheet" href="css/style.css">
+
 
 </head>
 
@@ -50,18 +58,18 @@
     game.condition = ['con1', 'con2', 'con3', 'con4', 'con5', 'con6'];
 
     var log = new Object();
-    log.log = {};
-    log.logMov1 = [];
-    log.logMov2 = [];
-    log.logLevel3 = [];
-    //log.currentGameLog = [];
-    log.playerLog = [];
-    //log.clickIntervalLog = [];
-    log.eachClickLog = [];
-    //log.timeSpanLog = [];
-    log.ArousalLog=[];
-    log.ValenceLog=[];
-    log.videotimeLog=[];
+    log.timeLogIn =[];
+    log.commentLogIn = [];
+    // log.logMov2 = [];
+    // log.logLevel3 = [];
+    // //log.currentGameLog = [];
+    // log.playerLog = [];
+    // //log.clickIntervalLog = [];
+    // log.eachClickLog = [];
+    // //log.timeSpanLog = [];
+    // log.ArousalLog=[];
+    // log.ValenceLog=[];
+    // log.videotimeLog=[];
 
     var timeLogIn = new Object();
     timeLogIn.year = 2018;
@@ -79,7 +87,20 @@
     timeLogIn.videotime=[];
     timeLogIn.Arousal = [];
     timeLogIn.Valence = [];
-    
+    timeLogIn.MRtags = [];
+
+    var commentLogIn = new Object();
+    commentLogIn.videotime=[];
+    commentLogIn.section=[];
+    commentLogIn.userID=[];
+    commentLogIn.comment=[];
+    commentLogIn.Arousal = [];
+    commentLogIn.Valence = [];
+    commentLogIn.tags = [];
+    commentLogIn.Customtags = [];
+    commentLogIn.reason = [];
+
+
     var timeLogIn2 = new Object();
     
     timeLogIn2.year = 2018;  
@@ -213,11 +234,11 @@
        <form class="user-input">
         ID:
             <input id="useridinput" type="text" name="Your ID" />
-            <!-- <input type="button" value="submit" onclick="saveID()"/> -->
+            
        </form>
               
              
-        
+        <input type="button" ,value="submit" onclick="ratingConfirm()"/>
     <div class="center" class="gamefield">
       <button class="btnNEXT" onclick = "pagePivot(2)">Continue ❯</button>
       <br />

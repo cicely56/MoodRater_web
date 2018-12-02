@@ -1,18 +1,37 @@
+// // function pageCondition(){
+// //   var arrBtn = new Array();
+// //   $(".Page1").remove();
+// //   $(".center").remove();
+  
+// //   var page2 = document.createElement('div')
+// //   page2.classList.add("page2");
+// //   $(".gamefield").append(page2);
+  
+// //   var paragraph = document.createElement("p");
+// //   paragraph.id = 'conditions';
+// //   paragraph.innerHTML = "Please choose this condition to continue."+ "<br>" + "请选择如下环境进入下一页。";
+// //   $(".page2").append(paragraph);
 
+// //   var divForBtn = document.createElement('div');
+// //   divForBtn.classList.add("conditions");
+// //   $(".page2").append(divForBtn);
 
-
+// //   conditionBtns(arrBtn);
+// //   // $(".page2").append(arrBtn[(Math.floor(Math.random()*arrBtn.length))]);//display one random condition
+// //   $(".page2").append(arrBtn); //display all six conditions
+// //   // $(".page2").append(arrBtn[4]); //display condition 1
+// }
 var page = 3;
-
 
 function pagePivot(pageIndex_static){ 
     // console.log(pageIndex, page);
     switch(pageIndex_static) {
     case 2:
       saveID();
-      beforePrime();
+      beforePrime();//instruction page
       break;
     case 3:
-      pageRating();
+      pageRating();// rating page Task 1
       page=5;
       
       // var page3 = document.createElement('div')
@@ -50,113 +69,7 @@ function pagePivot(pageIndex_static){
     };
   
 }
-// --------open google form---------
-
-
-
-// function conditionBtns(arrBtn){
-//   for(var i = 0; i<game.condition.length; i++){
-//     arrBtn [i] = document.createElement("BUTTON");
-//     arrBtn [i].innerHTML = "Condition " + (i+1) + "<br>" + "环境" + (i+1);
-//     arrBtn [i].classList.add("button");
-//     arrBtn [i].id = game.condition[i];
-//     console.log("The condition " + arrBtn [i].id + " is created");
-//   }
-//   arrBtn.forEach(function(element){
-//     element.addEventListener('click', function(){
-//       gameCondition = element.id;
-//       console.log("The condition " + gameCondition + " is clicked");
-//       pagePivot(page++);
-//     });
-//   });
-// }
-
-// function btnUtility (btnContent){
-//   var arrBtn = document.createElement("BUTTON");
-//   arrBtn.classList.add("button");
-//   arrBtn.innerHTML = btnContent;
-//   return arrBtn;
-// }
-
-function btnNext(catchBtn){//****************
-  var btndiv = document.createElement("div");
-  btndiv.classList.add("center");
-  var aBtn = document.createElement('button');
-  aBtn.innerHTML = 'Continue ❯';
-  aBtn.classList.add("btnNEXT");
-  aBtn.addEventListener('click', function () {
-    if (catchBtn === 'nothing'){//********************
-      console.log('The current page is: ' + page);
-      pagePivot(page++);       
-      }else{
-        lastPage();
-      }
-    });
-  btndiv.appendChild(aBtn);
-  btndiv.appendChild(document.createElement('br'));
-  // console.log(log);
-  // console.log(timeLogIn);
-  return btndiv;
-}
-
-
-function btnSave(catchBtn){//****************
-  var btndiv = document.createElement("div");
-  btndiv.classList.add("center");
-  btndiv.appendChild(document.createElement('br'));
-  var aBtn = document.createElement('button');
-  aBtn.innerHTML = 'SaveLogFile';
-  aBtn.classList.add("btnSave");
-  aBtn.addEventListener('click', function () {
-    if (catchBtn === 'nothing'){//********************
-      console.save(timeLogIn,"timelog1.json");
-      console.save(timeLogIn2,"timelog2.json");           
-      }else{
-        // lastPage();
-      }
-    });
-  btndiv.appendChild(aBtn);
-  btndiv.appendChild(document.createElement('br'));
-  // console.log(log);
-  // console.log(timeLogIn);
-  return btndiv;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-// // function pageCondition(){
-// //   var arrBtn = new Array();
-// //   $(".Page1").remove();
-// //   $(".center").remove();
-  
-// //   var page2 = document.createElement('div')
-// //   page2.classList.add("page2");
-// //   $(".gamefield").append(page2);
-  
-// //   var paragraph = document.createElement("p");
-// //   paragraph.id = 'conditions';
-// //   paragraph.innerHTML = "Please choose this condition to continue."+ "<br>" + "请选择如下环境进入下一页。";
-// //   $(".page2").append(paragraph);
-
-// //   var divForBtn = document.createElement('div');
-// //   divForBtn.classList.add("conditions");
-// //   $(".page2").append(divForBtn);
-
-// //   conditionBtns(arrBtn);
-// //   // $(".page2").append(arrBtn[(Math.floor(Math.random()*arrBtn.length))]);//display one random condition
-// //   $(".page2").append(arrBtn); //display all six conditions
-// //   // $(".page2").append(arrBtn[4]); //display condition 1
-// }
-//INSTRUCTION PAGE
+//INSTRUCTION PAGE 2
 function beforePrime(){
   $(".Page1").remove();
   
@@ -176,15 +89,15 @@ function beforePrime(){
   paragraph.innerHTML = "1. The Mood Rater consists of an interface for rating emotions in valence-arousal space."+ "<br>" 
   + "<br>" + "<i>Definitions: Valence refers to the intrinsic positive/negative nature of the emotion; arousal refers to the degree of excitation. For example, overjoyed would be positive valence and high arousal, angry would be negative valence and high arousal, and depressed would be negative valence and low arousal. </i> "+ "<br>" +  "<br>" + "See diagram below for further examples."
 
-var paragraph1_2 = document.createElement("p");
-  paragraph1_2.classList.add("explainRating");
-  paragraph1_2.id = 'va_instruction2';
-  paragraph1_2.innerHTML ="<br>" + " 2. Click on any part of the Mood Rater interface to send an emotion rating whenever a change is noted. " 
- + "<br>" +
-  "3. You are asked to report the<b> PERCEIVED EMOTION </b> . We are interested in the emotion the music is communicating, not the felt emotions. For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. "
- 
-  
-var va_pic2= document.createElement('div')
+  var paragraph1_2 = document.createElement("p");
+    paragraph1_2.classList.add("explainRating");
+    paragraph1_2.id = 'va_instruction2';
+    paragraph1_2.innerHTML ="<br>" + " 2. Click on any part of the Mood Rater interface to send an emotion rating whenever a change is noted. " 
+    + "<br>" +
+    "3. You are asked to report the<b> PERCEIVED EMOTION </b> . We are interested in the emotion the music is communicating, not the felt emotions. For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. "
+   
+    
+  var va_pic2= document.createElement('div')
 
   va_pic2.id="myimage2";
   va_pic2.classList.add("center");
@@ -231,13 +144,13 @@ var va_pic2= document.createElement('div')
    
   $(".page3").append(header2);
   $(".page3").append(paragraph2);
-    
+      
 
 
-  canvasPrepare2("con2")
+  canvasPrepare2("con2");
 
 
-  function canvasPrepare2 (gameCondition){
+  function canvasPrepare2(gameCondition){
 
       var ifrm = document.createElement("div");
       ifrm.classList.add("ifrm");
@@ -246,12 +159,12 @@ var va_pic2= document.createElement('div')
 
       var canvasscale= 1
       if(gameCondition === "con2" || gameCondition === "con3"){ 
-        var step = 20*canvasscale;
+        var step = 1*canvasscale;
         var ctd = document.createElement("div");
         ctd.id = "ddd"; 
         ctd.classList.add("ddd");
         ctd.style.position = "relative";
-        ctd.style.left = "700px";
+        ctd.style.left = "740px";
         ctd.style.top = "-380px";
         ctd.style.marginBottom = "-300px";
         $(".page3").append(ctd);
@@ -261,11 +174,9 @@ var va_pic2= document.createElement('div')
         canvas_e.position="absolute";
         canvas_e.width = 320*canvasscale;
         canvas_e.height = 320*canvasscale;
-
         // var datelabel = document.createElement('div')
         // document.getElementById('ddd').appendChild(datelabel);
-
-        }
+      }
 
       drawCanvas2();
 
@@ -282,10 +193,11 @@ var va_pic2= document.createElement('div')
         //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
         // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
         // wholemovment
-        file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+        // file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4", old player
+        file:"https://content.jwplatform.com/videos/riGsXt8N-7xqDv6Uz.mp4",
         
-        width: 600,
-        height: 404,
+        width: 710,
+        height: 410,
         repeat: false,
         //aspectratio: '16:9',
         autostart: false,
@@ -298,8 +210,6 @@ var va_pic2= document.createElement('div')
         console.log(player2.getPosition());
       }
 
-
-
       var canvas_R = document.getElementById('mycanvas');
 
       canvas_R.addEventListener('click', function(evt) {
@@ -307,10 +217,10 @@ var va_pic2= document.createElement('div')
         var videotimestamp= getVideoCurrentime2();
         var message2 = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
         var rating2 = {UserID: game.userID,
-        Valence: mousePos.x,
-        Arousal: mousePos.y,
-        Time: mousePos.clickdate,
-        videotime: videotimestamp};
+            Valence: mousePos.x,
+            Arousal: mousePos.y,
+            Time: mousePos.clickdate,
+            videotime: videotimestamp};
     
         setMarker2(canvas_R,evt);
         //var timeLogIn= addTimeLog(rating);   
@@ -319,7 +229,7 @@ var va_pic2= document.createElement('div')
 
 
 
-      function drawCanvas2 () {
+      function drawCanvas2(){
         //$(".explainRemove").remove();
         var ctx = canvas_e.getContext("2d");
           //canvas background
@@ -384,7 +294,7 @@ var va_pic2= document.createElement('div')
     
 
 
-      function setMarker2(canvas_R,evt) {
+      function setMarker2(canvas_R,evt){
 
         var rect = canvas_R.getBoundingClientRect();
         marker = {
@@ -465,18 +375,11 @@ var va_pic2= document.createElement('div')
       }
 
   }
- 
-  // paragraph.innerHTML = " Instructions for arousal and valence rating space"+ "<br>" + "You will play a warm-up rating for practice";
-  
-  
-  
-  
-  // btnNext('nothing')
-   var btndiv = btnNext('nothing');
-   $(".constant").append(btndiv);
+    var btndiv = btnNext('nothing');
+    $(".constant").append(btndiv);
 }
 
-//INSTRUCTION Page2
+//INSTRUCTION Page3
 function beforeexplain(){
   //downloadObjectAsJson(timeLogIn, exportName);
   $(".page2").remove();
@@ -536,8 +439,6 @@ function pageRating(){
 
 
 
-
-
 function canvasPrepare (gameCondition){
 
     var ifrm = document.createElement("div");
@@ -547,12 +448,12 @@ function canvasPrepare (gameCondition){
 
     var canvasscale= 1
     if(gameCondition === "con2" || gameCondition === "con3"){ 
-      var step = 20*canvasscale;
+      var step = 1*canvasscale;
       var ctd = document.createElement("div");
       ctd.id = "ddd"; 
       ctd.classList.add("ddd");
       ctd.style.position = "relative";
-      ctd.style.left = "700px";
+      ctd.style.left = "740px";
       ctd.style.top = "-380px";
       ctd.style.marginBottom = "-300px";
       $(".page2").append(ctd);
@@ -583,10 +484,12 @@ function canvasPrepare (gameCondition){
       //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
       // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
       // wholemovment
-      file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+      // file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4",
+      file:"https://content.jwplatform.com/videos/riGsXt8N-7xqDv6Uz.mp4",
+        
       
-      width: 600,
-      height: 404,
+      width: 710,
+      height: 410,
       repeat: false,
       //aspectratio: '16:9',
       autostart: false,
@@ -606,13 +509,16 @@ function canvasPrepare (gameCondition){
     canvas_R.addEventListener('click', function(evt) {
       var mousePos = getMousePos(canvas_R, evt);
       var videotimestamp= getVideoCurrentime();
-      var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
+      var currenttag=findMood(mousePos.x,mousePos.y);
+      var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp+",tags:"+findMood(mousePos.x,mousePos.y);
       var rating = {UserID: game.userID,
       Valence: mousePos.x,
       Arousal: mousePos.y,
       Time: mousePos.clickdate,
-      videotime: videotimestamp};
-  
+      videotime: videotimestamp,
+      tags: currenttag
+    };
+
       setMarker(canvas_R,evt);
       var timeLogIn= addTimeLog(rating);   
       console.log(message);
@@ -685,39 +591,33 @@ function canvasPrepare (gameCondition){
   
     function addTimeLog(rating){
 
-    // timeLogObj = new Date();
+     
+      timeLogObj = new Date();
 
-    // timeLogIn.year = timeLogObj.getUTCFullYear();
-    // timeLogIn.month = timeLogObj.getMonth();
-    // timeLogIn.date = timeLogObj.getUTCDate();
-    // timeLogIn.hour = timeLogObj.getUTCHours();
-    // timeLogIn.sec = timeLogObj.getUTCSeconds();;
+      timeLogIn.sec = timeLogObj.getUTCSeconds();;
+      timeLogIn.min = timeLogObj.getUTCMinutes();;
+      timeLogIn.hour = timeLogObj.getUTCHours();;
+      timeLogIn.month = timeLogObj.getUTCMonth();
+      timeLogIn.year = timeLogObj.getUTCFullYear();
+      timeLogIn.date = timeLogObj.getUTCDate();
+      timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
 
-    // timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
+      timeLogIn.month = timeLogObj.getUTCMonth()+1;
+
+
+      
+      var start = new Date ();
+
+      //timeLogIn.Arousal.push();
+      //timeLogIn.clickInterval.push(clickInterval(level));
+      timeLogIn.Arousal.push(rating.Arousal);
+      timeLogIn.Valence.push(rating.Valence);
+      timeLogIn.videotime.push(rating.videotime); 
+      timeLogIn.MRtags.push(rating.tags); 
     
-    timeLogObj = new Date();
-
-    timeLogIn.sec = timeLogObj.getUTCSeconds();;
-    timeLogIn.min = timeLogObj.getUTCMinutes();;
-    timeLogIn.hour = timeLogObj.getUTCHours();;
-    timeLogIn.month = timeLogObj.getUTCMonth()+1;
-    timeLogIn.year = timeLogObj.getUTCFullYear();
-    timeLogIn.date = timeLogObj.getUTCDate();
-    timeLogIn.utcDate = new Date(Date.UTC(timeLogIn.year, timeLogIn.month, timeLogIn.date, timeLogIn.hour, timeLogIn.min, timeLogIn.sec));
-    
-
-
-    
-    var start = new Date ();
-
-    //timeLogIn.Arousal.push();
-    //timeLogIn.clickInterval.push(clickInterval(level));
-    timeLogIn.Arousal.push(rating.Arousal);
-    timeLogIn.Valence.push(rating.Valence);
-    timeLogIn.videotime.push(rating.videotime); 
-    timeLogIn.userID.push(rating.UserID);
-    timeLogIn.eachClick.push(timeLogIn.utcDate);
-    return timeLogIn;
+      timeLogIn.userID.push(rating.UserID);
+      timeLogIn.eachClick.push(timeLogIn.utcDate);
+      return timeLogIn;
     }  
 
     function setMarker(canvas_R,evt) {
@@ -734,26 +634,7 @@ function canvasPrepare (gameCondition){
       ctx.beginPath();
       ctx.arc(marker.x, marker.y, 20, 0, Math.PI*2, true); 
       ctx.fill();
-      var moods=[
-        ["sad",0.07625,0.39125],
-        ["angry",0.23125,0.77125],
-        ["harsh",0.24125,0.575],
-        ["anxious",0.47625,0.74],
-        ["reserved",0.485,0.28375],
-        ["complex",0.53125,0.5775],
-        ["reverent",0.54375,0.375],
-        ["warm",0.6875,0.5175],
-        ["innocent",0.68875,0.40125],
-        ["tender",0.74125,0.485],
-        ["relaxed",0.75,0.17375],
-        ["bright",0.8125,0.55],
-        ["sweet",0.83,0.62],
-        ["peaceful",0.84625,0.23375],
-        ["happy",0.90125,0.68625],
-        ["hopeful",0.7625,0.5975],
-        ["excited",0.825,0.77],
-        ["bored",0.24375,0.22875]
-        ];
+      
       // var moods= [
       // ['power',0.69,0.71,0.79,1],
       // ['bright',0.81,0.55,0.67,2],
@@ -780,10 +661,13 @@ function canvasPrepare (gameCondition){
       datalabel.innerHTML =findMood(x, y);
       document.getElementById('ddd').append(datalabel);
 
-      function findMood(x, y) {
+      
+    }
+
+    function findMood(x, y) {
         var distance = 1;
         var index = null;
-        
+
         for (var i = 0; i < moods.length; i++) {
           var mood = moods[i];
           var dx = Math.abs(mood[1] - x);
@@ -798,9 +682,11 @@ function canvasPrepare (gameCondition){
 
         return moods[index][0];
       }
-    }
+
 
 }
+
+
 
 function getMousePos(canvas, evt) {
 

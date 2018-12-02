@@ -3,7 +3,6 @@ function pageExplain(){
 $(".page2").remove();
   $(".center").remove();
 
-
   $(".page3").remove();
   var arrBtn = new Array();
   $(".center").remove();
@@ -23,7 +22,7 @@ $(".page2").remove();
   task.id="task";
   task.innerHTML="Task 2"
   
-  header.innerHTML = "Segment 1"
+  header.innerHTML = "Short Section 1/6"
   paragraph.innerHTML = "Please confirms your ratings, and provide the reasons behind your choices. You will be asked to do this for the ratings in nine segments."+"We would like to know what music features led to some emotion ratings you have just made. "+ "<br>" +
 	"  1. Please listen to the segment again and review your emotion ratings.</b>" 
 	+ "<br>" +
@@ -72,20 +71,24 @@ $(".page2").remove();
   //   });
 
 
-	var audioclip1 = document.createElement('div');
+var audioclip1 = document.createElement('div');
   	audioclip1.id="myaudio1";
   	//audioclip1.classList.add("page4");
   	$(".page4").append(audioclip1);
 
- PB_CMT ("myaudio1");
+PB_CMT ("myaudio1");
 
 var linechart1 = document.createElement('div');
-  linechart1.id="mylinechart1";
+      
+  	linechart1.id="mylinechart1";
+  	
   //linechart1.classList.add("center");
   $(".page4").append(linechart1);
 
+ 
+
   //lineplot("mylinechart1");
-  lineplotandcmes("mylinechart1");
+  
   
 	// var coment1 = document.createElement("div");
  //    //coment1.classList.add("page4");
@@ -99,14 +102,43 @@ var linechart1 = document.createElement('div');
  //    $(".page4").append(coment1);
 
 	// commentsforrating ("mycoment1");
+var vachart1 = document.createElement('div');
+  		vachart1.id="myvachart1";
+  	$(".page4").append(vachart1);
+  	vachart1.classList.add('ddd');
+    vachart1.style.position = "relative";
+    vachart1.style.left = "740px";
+    vachart1.style.top = "-530px";
+    vachart1.style.marginBottom = "-350px";
 
+  	var canvas_1 = document.createElement("canvas");
+     canvas_1.id = "mycanvasE1"
+     canvas_1.position="absolute";
+     canvas_1.width = 320*canvasscale;
+     canvas_1.height = 320*canvasscale;
+  	$(".ddd").append(canvas_1); 
+
+  	var datalabel1 = document.createElement('div');
+      //datalabel.classList.add("ddd");
+    datalabel1.id="emotionlabel1";
+    
+    document.getElementById("myvachart1").append(datalabel1);
+
+
+	canvasrating("myvachart1","mycanvasE1","emotionlabel1");
+	lineplotandcmes("mylinechart1",0,51,"mycanvasE1","emotionlabel1",commentLogIn);
 
 	var audioclip2 = document.createElement('div');
   	audioclip2.id="myaudio2";
   	//audioclip1.classList.add("page4");
   	$(".page4").append(audioclip2);
 
- 	PB_CMT ("myaudio2");
+ 	// PB_CMT ("myaudio2");
+
+ // var vachart = document.createElement('div');
+ // 	varchart.id="myvachart1";
+
+
 
 	// var linechart2 = document.createElement('div');
  //  linechart2.id="mylinechart2";
@@ -135,8 +167,7 @@ var linechart1 = document.createElement('div');
   	var btndiv = btnNext('nothing');
   	$(".constant").append(btndiv);
 
-  	var btndiv = btnSave('nothing');
-  	$(".constant").append(btndiv);
+  	
 
 }
 
@@ -146,28 +177,38 @@ var linechart1 = document.createElement('div');
 
 
 
-function PB_CMT (auidoID){
+function PB_CMT (audioID){
 
-  var audiodiv= document.getElementById(auidoID);
+  var audiodiv= document.getElementById(audioID);
 
-   audiodiv.id="myaudio"
+   // audiodiv.id="myaudio"
   //var ifrm = document.createElement("div");
  // ifrm.id = "myaudio";
-
+ var filepath;
   //player
+  switch(audioID) {
+    case "myaudio1":
+      filepath= "https://content.jwplatform.com/videos/Pk9bJNBJ-7xqDv6Uz.mp4";//segment1
+      break;
+    case "myaudio2":
+     filepath= "https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a";
+    break
+	};	
+	// filepath="https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a";
 
-	const player1 =jwplayer("myaudio").setup({
+	const player1 =jwplayer(audioID).setup({
     
       //file: "https://content.jwplatform.com/videos/eToUBrbD-RRiR9dl9.mp4",
       //wangwang
       //file:"https://content.jwplatform.com/videos/9las3Az9-To6C1UXs.mp4",
       // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
-      // wholemovment
+      // wholemovmen
 
-      file:"https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a",
+      // file: "https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a",
+      file: filepath,
       
-      width: 620,
-      height: 40,
+      width: 710,
+      height: 410,
       repeat: false,
       //aspectratio: '16:9',
       autostart: false
@@ -197,52 +238,52 @@ function PB_CMT (auidoID){
   // $(".gamefield").append(para);
 }
 
-function commentsforrating (commentID) {
+// function commentsforrating (commentID) {
 
-	var commentdiv= document.getElementById(commentID);
-	commentdiv.classList.add("commentdiv");
-    var x = document.createElement("textarea");
- 	x.id="comment_R1";
- 	x.setAttribute("type", "text");
- 	x.setAttribute("cols", "40");
-    x.setAttribute("value", "");
-    x.setAttribute("placeholder","Rating 1: ..");    
-    commentdiv.appendChild(x);
-	commentdiv.appendChild(document.createElement("br"));   
- 	var x2= document.createElement("textarea");
- 	x2.id="comment_R2";
- 	x2.setAttribute("cols", "40");
- 	x2.setAttribute("type", "text");
-    x2.setAttribute("value", "");
-    x2.setAttribute("placeholder","Rating 2: ..");
-    commentdiv.appendChild(x2);
-    commentdiv.appendChild(document.createElement("br")); 
-    var x3= document.createElement("textarea");
- 	x3.id="comment_R3";
- 	x3.setAttribute("cols", "40");
- 	x3.setAttribute("type", "text");
-    x3.setAttribute("value", "");
-    x3.setAttribute("placeholder","Rating 3: ..");
-    commentdiv.appendChild(x3);
-    commentdiv.appendChild(document.createElement("br")); 
-	var x4= document.createElement("textarea");
- 	x4.id="comment_R4";
- 	x4.setAttribute("cols", "40");
- 	x4.setAttribute("type", "text");
-    x4.setAttribute("value", "");
-    x4.setAttribute("placeholder","Rating 4: ..");
-    commentdiv.appendChild(x4);
-    commentdiv.appendChild(document.createElement("br")); 
-	var x5= document.createElement("textarea");
- 	x5.id="comment_R5";
- 	x5.setAttribute("cols", "40");
- 	x5.setAttribute("type", "text");
-    x5.setAttribute("value", "");
-    x5.setAttribute("placeholder","Rating 5 or More: ..");
-    commentdiv.appendChild(x5);
+// 	var commentdiv= document.getElementById(commentID);
+// 	commentdiv.classList.add("commentdiv");
+//     var x = document.createElement("textarea");
+//  	x.id="comment_R1";
+//  	x.setAttribute("type", "text");
+//  	x.setAttribute("cols", "40");
+//     x.setAttribute("value", "");
+//     x.setAttribute("placeholder","Rating 1: ..");    
+//     commentdiv.appendChild(x);
+// 	commentdiv.appendChild(document.createElement("br"));   
+//  	var x2= document.createElement("textarea");
+//  	x2.id="comment_R2";
+//  	x2.setAttribute("cols", "40");
+//  	x2.setAttribute("type", "text");
+//     x2.setAttribute("value", "");
+//     x2.setAttribute("placeholder","Rating 2: ..");
+//     commentdiv.appendChild(x2);
+//     commentdiv.appendChild(document.createElement("br")); 
+//     var x3= document.createElement("textarea");
+//  	x3.id="comment_R3";
+//  	x3.setAttribute("cols", "40");
+//  	x3.setAttribute("type", "text");
+//     x3.setAttribute("value", "");
+//     x3.setAttribute("placeholder","Rating 3: ..");
+//     commentdiv.appendChild(x3);
+//     commentdiv.appendChild(document.createElement("br")); 
+// 	var x4= document.createElement("textarea");
+//  	x4.id="comment_R4";
+//  	x4.setAttribute("cols", "40");
+//  	x4.setAttribute("type", "text");
+//     x4.setAttribute("value", "");
+//     x4.setAttribute("placeholder","Rating 4: ..");
+//     commentdiv.appendChild(x4);
+//     commentdiv.appendChild(document.createElement("br")); 
+// 	var x5= document.createElement("textarea");
+//  	x5.id="comment_R5";
+//  	x5.setAttribute("cols", "40");
+//  	x5.setAttribute("type", "text");
+//     x5.setAttribute("value", "");
+//     x5.setAttribute("placeholder","Rating 5 or More: ..");
+//     commentdiv.appendChild(x5);
 
 
-}
+// }
 
 // function PB_CMT (page){
   
@@ -486,6 +527,9 @@ function lastPage(){
     	//linkTo ('outSide', "con2");
     });
     $(".page5").append(aBtn);
+
+    var btndiv = btnSave('nothing');
+  	$(".constant").append(btndiv);
 
   //   var aBtn2 = document.createElement('button');
   // 	aBtn2.innerHTML = '问卷（中国大陆)';

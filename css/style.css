@@ -59,8 +59,8 @@ body {
 
 
 .gamefield {
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 1050px;
+  margin: 10px auto;
 }
 
 #throw, .user-input input[type ="button"]{  
