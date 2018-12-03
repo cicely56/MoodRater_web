@@ -261,14 +261,14 @@ body {
     border: none;
 }
 .btnNEXT:hover {
-    background-color: rgba(255, 255, 255, 0.3); 
+    background-color: #323232; 
     margin-left: 1.25em;
     color: white;
     } 
 .btnNEXT:active {
-    color: black;
-    background: white;
-    opacity: 0.5;
+    color: white;
+    background: #323232;
+    opacity: 0.7;
   }
 
 
@@ -287,7 +287,7 @@ body {
     border: none;
 }
 .btnSave:hover {
-    background-color: rgba(255, 255, 255, 0.3); 
+    background-color: #323232; 
     margin-left: 1.25em;
     color: white;
     } 
@@ -361,3 +361,6 @@ body {
   /*background: white;*/
   /*margin-left: 4em;*/
 }
+.emotionlabel{
+  font-size: 45px;
+  }

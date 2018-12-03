@@ -47,19 +47,14 @@
 
   <script type="text/javascript">
     var game = new Object();
-    game.trialCount = 0;
-    // noteCount: 3,
-    game.noteCount = [];//for random level
-    game.levelCount = 0; //for random level
-    game.possibilities = ['c1','c2', 'c3', 'c4', 'c5'];
-    game.currentGame = [];
-    game.player = [];
+    
     game.userID = null;
-    game.condition = ['con1', 'con2', 'con3', 'con4', 'con5', 'con6'];
-
+    game.uID=null;
+  
     var log = new Object();
     log.timeLogIn =[];
     log.commentLogIn = [];
+
     // log.logMov2 = [];
     // log.logLevel3 = [];
     // //log.currentGameLog = [];
@@ -71,34 +66,9 @@
     // log.ValenceLog=[];
     // log.videotimeLog=[];
 
-    var timeLogIn = new Object();
-    timeLogIn.year = 2018;
-    timeLogIn.month = [];
-    timeLogIn.date = 0;
-    timeLogIn.hour = [];
+    
 
-    timeLogIn.min = [];
-
-    timeLogIn.sec = [];
-    timeLogIn.utcDate = 0;
-
-    timeLogIn.eachClick = [];
-    timeLogIn.userID=[];
-    timeLogIn.videotime=[];
-    timeLogIn.Arousal = [];
-    timeLogIn.Valence = [];
-    timeLogIn.MRtags = [];
-
-    var commentLogIn = new Object();
-    commentLogIn.videotime=[];
-    commentLogIn.section=[];
-    commentLogIn.userID=[];
-    commentLogIn.comment=[];
-    commentLogIn.Arousal = [];
-    commentLogIn.Valence = [];
-    commentLogIn.tags = [];
-    commentLogIn.Customtags = [];
-    commentLogIn.reason = [];
+  
 
 
     var timeLogIn2 = new Object();
@@ -114,6 +84,7 @@
     timeLogIn2.videotime=[];
     timeLogIn2.Arousal = [];
     timeLogIn2.Valence = [];
+
     
 
 
@@ -124,61 +95,9 @@
     gameDemo.currentGame = [];
     gameDemo.player = [];
     
-    // var circleLevel1 = new Array(
-    //   ['c1','c3','c2'],
-    //   ['c3','c2','c1'],
-    //   ['c2','c1','c3']);
-
-    // var circleLevel2 = new Array(
-    //   ['c4','c1','c3','c2'],
-    //   ['c1','c2','c4','c3'],
-    //   ['c3','c4','c2','c1'],
-    //   ['c2','c3','c1','c4']);
-
-    // var circleLevel3 = new Array(
-    //   ['c5','c4','c1','c3','c2'],
-    //   ['c1','c5','c2','c4','c3'],
-    //   ['c4','c3','c5','c2','c1'],
-    //   ['c3','c2','c4','c1','c5'],
-    //   ['c2','c1','c3','c5','c4']);
 
     </script>
 
-<!-- <audio id="aNotes">
-     
-
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/a_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.wav" type="audio/wav"></source>
-      </audio>   s
-      <audio id="cNotes">
-       
-
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/c_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.wav" type="audio/wav"></source>        
-      </audio>
-      <audio id="dNotes">
-      
-
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/d_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.wav" type="audio/wav"></source>  
-      </audio>
-      <audio id="eNotes">
-     
-
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/e_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.wav" type="audio/wav"></source>
-      </audio>  
-      <audio id="gNotes">
-       
-
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/g_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.wav" type="audio/wav"></source>
-</audio>  -->
 </div>
 <div class='playGround' id='playGround'>
   <div class="text-center">
@@ -204,9 +123,9 @@
  <p><span style="font-size: 12pt;">You are invited to take part in this research study on&nbsp;<strong>time-varying music emotion perception</strong> in&nbsp;live performance.&nbsp;This study is conducted by Simin Yang from Centre for Digital Music, Queen Mary University of London, as a part of her doctoral research. This research is supervised by Professor Elaine Chew and Dr. Mathieu Barthet.&nbsp;</span></p>
 <h3><span style="color: #b50c0c;"><strong>Procedures of the study:</strong></span></h3>
 <ul>
-<li><strong><span style="color: #b50c0c;">Task 1:&nbsp;</span>&nbsp;</strong>You will be asked to watch a video recording of a live classical music performance totalling 17 minutes in length, and to rate the perceived emotion in the two-dimensional valence-arousal space. During this session, you may pause the video and replay it where necessary.&nbsp;</li>
-<li><span style="color: #b50c0c;"><strong>Task 2:</strong> </span> You will be asked to confirm each ratings you have given in nine selections from the full recording. For each rating, once it is confirmed, you will be asked to write down the reasons for your choice.&nbsp;</li>
-<li><span style="color: #b50c0c;"><strong>Task 3:</strong> </span>Finally, you will be asked to complete a questionnaire about your music preference and experience. &nbsp;</li>
+<li><strong><span style="color: #b50c0c;">Task 1:&nbsp;</span>&nbsp;</strong>You will be asked to watch a video recording of a live classical music performance totalling 17 minutes in length, and to <strong>rate the perceived emotion</strong> in the two-dimensional valence-arousal space. During this session, you may pause the video and replay it where necessary.&nbsp;</li>
+<li><span style="color: #b50c0c;"><strong>Task 2:</strong> </span> You will be asked to <strong>confirm each rating</strong> you have given in 6 short selections from the full recording. For each rating, once it is confirmed, we appreciate it if you can write down the reasons for your choice.&nbsp;</li>
+<li><span style="color: #b50c0c;"><strong>Task 3:</strong> </span>Finally, you will be asked to <strong>complete a questionnaire</strong> about your music preference and experience. &nbsp;</li>
 </ul>
 <h3><span style="color: #b50c0c;"><strong>Instructions:</strong></span></h3>
 <ul>
@@ -238,7 +157,7 @@
        </form>
               
              
-        <input type="button" ,value="submit" onclick="ratingConfirm()"/>
+        <!-- <input type="button" ,value="submit" onclick="ratingConfirm()"/> -->
     <div class="center" class="gamefield">
       <button class="btnNEXT" onclick = "pagePivot(2)">Continue ❯</button>
       <br />

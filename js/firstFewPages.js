@@ -32,7 +32,7 @@ function pagePivot(pageIndex_static){
       break;
     case 3:
       pageRating();// rating page Task 1
-      page=5;
+      
       
       // var page3 = document.createElement('div')
       // page3.classList.add("page3");
@@ -46,16 +46,17 @@ function pagePivot(pageIndex_static){
       // }
       break;
     case 4: 
-      primePrepare(gameCondition);
-      break;
-    case 5:
       pageExplain();
       break;
+    case 5:
+      pageExplain2();
+      break;
     case 6:
-      lastPage();
+      pageExplain3();
+      
       break;
     case 7:
-     
+     lastPage();
       break;
     case 8:
       newGame();
@@ -201,7 +202,8 @@ function beforePrime(){
         repeat: false,
         //aspectratio: '16:9',
         autostart: false,
-        timeSliderAbove:true
+        timeSliderAbove:true,
+        displayPlaybackLabel:true
 
       });
       
@@ -217,6 +219,7 @@ function beforePrime(){
         var videotimestamp= getVideoCurrentime2();
         var message2 = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp;
         var rating2 = {UserID: game.userID,
+            UID:game.UID,
             Valence: mousePos.x,
             Arousal: mousePos.y,
             Time: mousePos.clickdate,
@@ -351,7 +354,7 @@ function beforePrime(){
 
         
         datalabel=document.getElementById('emotionlabel');
-        datalabel.innerHTML =findMood(x, y);
+        datalabel.innerHTML =findMood(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
         document.getElementById('ddd').append(datalabel);
 
         function findMood(x, y) {
@@ -375,7 +378,7 @@ function beforePrime(){
       }
 
   }
-    var btndiv = btnNext('nothing');
+    var btndiv = btnNext('ratingpage');
     $(".constant").append(btndiv);
 }
 
@@ -401,6 +404,7 @@ function beforeexplain(){
 
 //-----First Rating Page------
 function pageRating(){
+
   $(".page3").remove();
   var arrBtn = new Array();
   $(".center").remove();
@@ -493,9 +497,13 @@ function canvasPrepare (gameCondition){
       repeat: false,
       //aspectratio: '16:9',
       autostart: false,
-      timeSliderAbove:true
+      timeSliderAbove:true,
+      displayPlaybackLabel:true
 
     });
+
+
+   
     
     function getVideoCurrentime() {
       return player1.getPosition();
@@ -512,6 +520,7 @@ function canvasPrepare (gameCondition){
       var currenttag=findMood(mousePos.x,mousePos.y);
       var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp+",tags:"+findMood(mousePos.x,mousePos.y);
       var rating = {UserID: game.userID,
+      UID:game.UID,
       Valence: mousePos.x,
       Arousal: mousePos.y,
       Time: mousePos.clickdate,
@@ -614,7 +623,7 @@ function canvasPrepare (gameCondition){
       timeLogIn.Valence.push(rating.Valence);
       timeLogIn.videotime.push(rating.videotime); 
       timeLogIn.MRtags.push(rating.tags); 
-    
+      timeLogIn.UID.push(rating.UID);
       timeLogIn.userID.push(rating.UserID);
       timeLogIn.eachClick.push(timeLogIn.utcDate);
       return timeLogIn;
@@ -658,7 +667,9 @@ function canvasPrepare (gameCondition){
 
       
       datalabel=document.getElementById('emotionlabel');
-      datalabel.innerHTML =findMood(x, y);
+
+       
+      datalabel.innerHTML =findMood(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
       document.getElementById('ddd').append(datalabel);
 
       
