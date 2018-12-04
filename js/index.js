@@ -745,21 +745,21 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
                 
             ]
         },
-        rating_tag: {
-            label: 'Are you agree with the guideline tag?',
-            type: 'checkbox',
-            // value: ['Rating','Tag'],
-            options: [
-                {value: "3", text: 'Agree'},
-                {value: "2", text: 'Neutral'},
-                {value: "1", text: 'Disagree'},
-                ]
-        },
-        customtags: {
-            label: 'Fancy to give a better tag for it? Type here (optional)',
+        // rating_tag: {
+        //     label: 'Are you agree with the guideline tag?',
+        //     type: 'checkbox',
+        //     // value: ['Rating','Tag'],
+        //     options: [
+        //         {value: "3", text: 'Agree'},
+        //         {value: "2", text: 'Neutral'},
+        //         {value: "1", text: 'Disagree'},
+        //         ]
+        // },
+        // customtags: {
+        //     label: 'Fancy to give a better tag for it? Type here (optional)',
             
-            type:  'text'
-        },
+        //     type:  'text'
+        // },
         // confidence_tag: {
         //     label: 'How certain were you this tags rating ?'
         //     type:  'select',
