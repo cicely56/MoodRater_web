@@ -123,12 +123,12 @@ function openWin() {
 
 function vatagsplot18(divID) {
   var trace1 = {
-  x: [-0.8475,-0.5375,-0.5175,-0.0475,-0.03,0.0625,0.0875,0.375,0.3775,0.4825,0.5,0.625,0.66,0.6925,0.8025,0.525,0.65,-0.5125],
-  y: [-0.2175,0.5425,0.15,0.48,-0.4325,0.155,-0.25,0.035,-0.1975,-0.03,-0.6525,0.1,0.24,-0.5325,0.3725,0.195,0.54,-0.5425],
+  x: [-0.8475,-0.5375,-0.5175,-0.0475,-0.03,0.0625,0.0875,0.375,0.4825,0.5,0.6925,0.8025,0.65,-0.5125,0.38,-0.44,-0.155,0.4325,0.7675],
+  y: [-0.2175,0.5425,0.15,0.48,-0.4325,0.155,-0.25,0.035,-0.03,-0.6525,-0.5325,0.3725,0.54,-0.5425,0.42,0.26,-0.5875,-0.35,0.1425],
   mode: 'markers+text',
   type: 'scatter',
   name: 'emotion tags',
-  text: ["sad","angry","harsh","anxious","reserved","complex","reverent","warm","innocent","tender","relaxed","bright","sweet","peaceful","happy","hopeful","excited","bored"],
+  text: ["sad","angry","harsh","anxious","reserved","complex","reverent","warm","tender","relaxed","peaceful","happy","excited","bored","power","confused","lazy","calm","positive"],
   textposition: 'top center',
    hoverinfo: 'text',
   textfont: {
@@ -184,26 +184,27 @@ function vatagsplot18(divID) {
 
 }
 
-var moods=[
+moods=[
         ["sad",0.07625,0.39125],
-        ["angry",0.23125,0.77125],
-        ["harsh",0.24125,0.575],
-        ["anxious",0.47625,0.74],
-        ["reserved",0.485,0.28375],
-        ["complex",0.53125,0.5775],
-        ["reverent",0.54375,0.375],
-        ["warm",0.6875,0.5175],
-        ["innocent",0.68875,0.40125],
-        ["tender",0.74125,0.485],
-        ["relaxed",0.75,0.17375],
-        ["bright",0.8125,0.55],
-        ["sweet",0.83,0.62],
-        ["peaceful",0.84625,0.23375],
-        ["happy",0.90125,0.68625],
-        ["hopeful",0.7625,0.5975],
-        ["excited",0.825,0.77],
-        ["bored",0.24375,0.22875]
-        ];
+["angry",0.23125,0.77125],
+["harsh",0.24125,0.575],
+["anxious",0.47625,0.74],
+["reserved",0.485,0.28375],
+["complex",0.53125,0.5775],
+["reverent",0.54375,0.375],
+["warm",0.6875,0.5175],
+["tender",0.74125,0.485],
+["relaxed",0.75,0.17375],
+["peaceful",0.84625,0.23375],
+["happy",0.90125,0.68625],
+["excited",0.825,0.77],
+["bored",0.24375,0.22875],
+["power",0.69,0.71],
+["confused",0.28,0.63],
+["lazy",0.4225,0.20625],
+["calm",0.71625,0.325],
+["positive",0.88375,0.57125]
+];        
 
 
 function saveID(){
@@ -526,28 +527,28 @@ function setMarker_explain(canvas_explainID,emotionlabelID,v,a) {
       ctx=document.getElementById(canvas_explainID).getContext("2d");
       ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
       ctx.beginPath();
-      ctx.arc(marker.x, marker.y, 20, 0, Math.PI*2, true); 
+      ctx.arc(marker.x, marker.y, 12, 0, Math.PI*2, true); 
       ctx.fill();
-      var moods=[
-        ["sad",0.07625,0.39125],
-        ["angry",0.23125,0.77125],
-        ["harsh",0.24125,0.575],
-        ["anxious",0.47625,0.74],
-        ["reserved",0.485,0.28375],
-        ["complex",0.53125,0.5775],
-        ["reverent",0.54375,0.375],
-        ["warm",0.6875,0.5175],
-        ["innocent",0.68875,0.40125],
-        ["tender",0.74125,0.485],
-        ["relaxed",0.75,0.17375],
-        ["bright",0.8125,0.55],
-        ["sweet",0.83,0.62],
-        ["peaceful",0.84625,0.23375],
-        ["happy",0.90125,0.68625],
-        ["hopeful",0.7625,0.5975],
-        ["excited",0.825,0.77],
-        ["bored",0.24375,0.22875]
-        ];
+      // var moods=[
+      //   ["sad",0.07625,0.39125],
+      //   ["angry",0.23125,0.77125],
+      //   ["harsh",0.24125,0.575],
+      //   ["anxious",0.47625,0.74],
+      //   ["reserved",0.485,0.28375],
+      //   ["complex",0.53125,0.5775],
+      //   ["reverent",0.54375,0.375],
+      //   ["warm",0.6875,0.5175],
+      //   ["innocent",0.68875,0.40125],
+      //   ["tender",0.74125,0.485],
+      //   ["relaxed",0.75,0.17375],
+      //   ["bright",0.8125,0.55],
+      //   ["sweet",0.83,0.62],
+      //   ["peaceful",0.84625,0.23375],
+      //   ["happy",0.90125,0.68625],
+      //   ["hopeful",0.7625,0.5975],
+      //   ["excited",0.825,0.77],
+      //   ["bored",0.24375,0.22875]
+      //   ];
       // var moods= [
       // ['power',0.69,0.71,0.79,1],
       // ['bright',0.81,0.55,0.67,2],
@@ -698,7 +699,7 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
 
 
   bootbox.form({
-    title: 'You rated the emotion as'+'<strong> <br> Arousal= '+a+', Valence ='+ v+"</strong><br>"+'Guide Tag= <strong>'+tags+'</strong>',
+    title: 'You rated the emotion as'+'<strong> <br> Arousal= '+a+' (scale:0-1), Valence ='+ v+" (scale:0-1)</strong><br>"+'Guide Tag= <strong>'+tags+'</strong>',
     fields: {
         // name: {
         //     label: 'Name',
@@ -719,14 +720,29 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
         //         {value: 2, text: 'Robot'}
         //     ]
         // },
-        confidence_va: {
-            label: 'How certain were you for this VA rating ?',
+        confidence_rating: {
+            label: 'Do you want to confirm this VA rating ?',
             type:  'checkbox',
             options: [
-                {value: "3", text: 'High certainty'},
-                {value: "2", text: 'Neutral'},
-                {value: "1", text: 'Low certainty'},
-                {value: "0", text: 'I want to disgard this emotion rating'}
+                // {value: "3", text: 'Yes'},
+                // {value: "2", text: 'Neutral'},
+                {value: "1", text: 'Yes'},
+                {value: "0", text: 'No. I want to disgard this VA rating <br> (skip the following questions if you choose this)'}
+            ]
+        },
+
+        confidence_va: {
+            label: 'At this point, how clear the emotion is portrating by the music? <br> (Scale: 1(very unclear)--7(very clear))',
+            type:  'select',
+            options: [
+                {value: 7, text: '7 (Very Clear)'},
+                {value: 6, text: '6'},
+                {value: 5, text: "5"},
+                {value: 4, text: '4 (Neutral)'},
+                {value: 3, text: '3'},
+                {value: 2, text: '2'},
+                {value: 1, text: '1(Very Unclear)'},
+                
             ]
         },
         rating_tag: {
@@ -740,7 +756,7 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
                 ]
         },
         customtags: {
-            label: 'I have a better tag for it, input here (optioanl)',
+            label: 'Fancy to give a better tag for it? Type here (optional)',
             
             type:  'text'
         },

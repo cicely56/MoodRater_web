@@ -195,7 +195,8 @@ function beforePrime(){
         // file:"https://content.jwplatform.com/videos/yAY0yvTN-u8GeqODi.mp4",
         // wholemovment
         // file:"https://content.jwplatform.com/videos/5kSUgpvz-To6C1UXs.mp4", old player
-        file:"https://content.jwplatform.com/videos/riGsXt8N-7xqDv6Uz.mp4",
+        // file:"https://content.jwplatform.com/videos/riGsXt8N-7xqDv6Uz.mp4",//MOV 1 2
+        file:"https://content.jwplatform.com/videos/Pk9bJNBJ-7xqDv6Uz.mp4",//SEG 2
         
         width: 710,
         height: 410,
@@ -309,28 +310,28 @@ function beforePrime(){
         ctx=document.getElementById('mycanvas').getContext("2d");
         ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
         ctx.beginPath();
-        ctx.arc(marker.x, marker.y, 20, 0, Math.PI*2, true); 
+        ctx.arc(marker.x, marker.y, 12, 0, Math.PI*2, true); 
         ctx.fill();
-        var moods=[
-        ["sad",0.07625,0.39125],
-        ["angry",0.23125,0.77125],
-        ["harsh",0.24125,0.575],
-        ["anxious",0.47625,0.74],
-        ["reserved",0.485,0.28375],
-        ["complex",0.53125,0.5775],
-        ["reverent",0.54375,0.375],
-        ["warm",0.6875,0.5175],
-        ["innocent",0.68875,0.40125],
-        ["tender",0.74125,0.485],
-        ["relaxed",0.75,0.17375],
-        ["bright",0.8125,0.55],
-        ["sweet",0.83,0.62],
-        ["peaceful",0.84625,0.23375],
-        ["happy",0.90125,0.68625],
-        ["hopeful",0.7625,0.5975],
-        ["excited",0.825,0.77],
-        ["bored",0.24375,0.22875]
-        ];
+        // var moods=[
+        // ["sad",0.07625,0.39125],
+        // ["angry",0.23125,0.77125],
+        // ["harsh",0.24125,0.575],
+        // ["anxious",0.47625,0.74],
+        // ["reserved",0.485,0.28375],
+        // ["complex",0.53125,0.5775],
+        // ["reverent",0.54375,0.375],
+        // ["warm",0.6875,0.5175],
+        // ["innocent",0.68875,0.40125],
+        // ["tender",0.74125,0.485],
+        // ["relaxed",0.75,0.17375],
+        // ["bright",0.8125,0.55],
+        // ["sweet",0.83,0.62],
+        // ["peaceful",0.84625,0.23375],
+        // ["happy",0.90125,0.68625],
+        // ["hopeful",0.7625,0.5975],
+        // ["excited",0.825,0.77],
+        // ["bored",0.24375,0.22875]
+        // ];
         // var moods= [
         // ['power',0.69,0.71,0.79,1],
         // ['bright',0.81,0.55,0.67,2],
@@ -641,7 +642,7 @@ function canvasPrepare (gameCondition){
       ctx=document.getElementById('mycanvas').getContext("2d");
       ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
       ctx.beginPath();
-      ctx.arc(marker.x, marker.y, 20, 0, Math.PI*2, true); 
+      ctx.arc(marker.x, marker.y, 12, 0, Math.PI*2, true); 
       ctx.fill();
       
       // var moods= [
