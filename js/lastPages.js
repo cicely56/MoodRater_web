@@ -35,19 +35,20 @@ function pageExplain(){
 	task.innerHTML="Task 2"
 
 	  
-	  paragraph.innerHTML = "Please confirms your ratings, and provide the reasons behind your choices. We would like to know what music features led to some emotion ratings you have just made."+'<br>'+ "<br>" +
+	  paragraph.innerHTML = "Please confirm your ratings, and provide the reasons behind your choices. We would like to know what music features led to some emotion ratings you have just made."+'<br>'+ "<br>" +
 		"<ol><li>Please watch the short section again and review your emotion ratings. This can be done by<strong> hovering on the timeline graph below the player</strong> , your previous emotion ratings will show up on the VA space on the right.</li> " +
-	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can <strong>confirm that rating</strong> or <strong>disgard the rating </strong>.</li>"+
-	 	" <li>If a rating is confirmed, we would like you to <strong>provide the clarity level of the emotion at the rating point </strong>, and <strong>write down the reasons behind the rating</strong>.</li>"+
-	 	"<pre> Examples of possible reasons might be:"
+	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can <strong>confirm that rating</strong> or <strong>discard the rating </strong> only if you disagree with your previous rating.</li>"+
+	 	" <li>If a rating is confirmed, we would like you to <strong> tell how clear is the emotion portrayed by music at the rating point </strong>, and <strong>write down the reasons behind the rating</strong>. If you have the same reason for a cluster of points, please select <i>same reason as points nearby</i> after wrting down the reason for one point.</li>"+
+	 	"<pre> Examples of possible reasons might be:" 
 	 	+"<br>" +
-		"<ul> <li>the melody is rising and uplifting</li>"+
-		"<li>the harmonies sound very tense</li>"+
+		"<ul> <li>the melody is rising</li>"+
+		"<li>the harmonies is very tense</li>"+
+		"<li>the cello plays soft sound</li>"+
 		"<li> ...</li></ul>"
 		+"<br>" +
 		"There is no right or wrong answer on your reason. Please let us know as much as possible.</pre>"
 		+ "<br>" +
-		" <li>If a rating is disgarded, please skip step 3, and move on to the next rating.</li></ol>"
+		" <li>If a rating is discarded, please skip step 3, and move on to the next rating.</li></ol>"
 		 	+ "<br>" +
 		 	
 		"You will be asked to do this for the ratings in the following 6 short sections."
@@ -208,19 +209,20 @@ function pageExplain2(){
 	task.innerHTML="Task 2"
 
 	  
-	  paragraph.innerHTML = "Please confirms your ratings, and provide the reasons behind your choices. We would like to know what music features led to some emotion ratings you have just made."+'<br>'+ "<br>" +
+	  paragraph.innerHTML = "Please confirm your ratings, and provide the reasons behind your choices. We would like to know what music features led to some emotion ratings you have just made."+'<br>'+ "<br>" +
 		"<ol><li>Please watch the short section again and review your emotion ratings. This can be done by<strong> hovering on the timeline graph below the player</strong> , your previous emotion ratings will show up on the VA space on the right.</li> " +
-	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can confirm that rating</strong> or <strong>disgard the rating </strong>.</li>"+
-	 	" <li>If a rating is confirmed, we would like you to <strong>provide the clarity level of the emotion at the rating point </strong>, and <strong>write down the reasons behind the rating</strong>.</li>"+
+	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can confirm that rating</strong> or <strong>discard the rating </strong> only if you disagree with your previous rating.</li>"+
+	 	" <li>If a rating is confirmed, we would like you to <strong> tell how clear is the emotion portrayed by music at the rating point </strong>, and <strong>write down the reasons behind the rating</strong>.</li>"+
 	 	"<pre> Examples of possible reasons might be:"
 	 	+"<br>" +
-		"<ul> <li>the melody is rising and uplifting</li>"+
-		"<li>the harmonies sound very tense</li>"+
+		"<ul> <li>the melody is rising</li>"+
+		"<li>the harmonies is very tense</li>"+
+		"<li>the cello plays soft sound</li>"+
 		"<li> ...</li></ul>"
 		+"<br>" +
 		"There is no right or wrong answer on your reason. Please let us know as much as possible.</pre>"
 		+ "<br>" +
-		" <li>If a rating is disgarded, please skip step 3, and move on to the next rating.</li></ol>"
+		" <li>If a rating is discarded, please skip step 3, and move on to the next rating.</li></ol>"
 		 	+ "<br>" +
 		 	
 		"You will be asked to do this for the ratings in the following 6 short sections."
@@ -383,7 +385,7 @@ function pageExplain3(){
 	  
 	  paragraph.innerHTML = "Please confirms your ratings, and provide the reasons behind your choices. We would like to know what music features led to some emotion ratings you have just made."+'<br>'+ "<br>" +
 		"<ol><li>Please watch the short section again and review your emotion ratings. This can be done by <strong> hovering on the timeline graph below the player</strong> , your previous emotion ratings will show up on the VA space on the right.</li> " +
-	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can confirm that rating or disgard the rating.</li>"+
+	 	"<li><strong> Click on each rating point</strong> to raise a pop-up window where you can confirm that rating or discard the rating.</li>"+
 	 	"<li>If a rating is confirmed, we would like you to write down the reasons behind the rating.  </li>"
 	 	" <li>If a rating is confirmed, we would like you to write down the reasons behind the rating. </li>"
 	 	+"<br>"+
@@ -395,7 +397,7 @@ function pageExplain3(){
 		+"<br>" +
 		"There is no right or wrong answer on your reason. Please let us know as much as possible.</pre>"
 		+ "<br>" +
-		" <li>If a rating is disgarded, please just leave the reason area blank to submit, then move on to the next rating.</li></ol>"
+		" <li>If a rating is discarded, please just leave the reason area blank to submit, then move on to the next rating.</li></ol>"
 		 	+ "<br>" +
 		 	
 		"You will be asked to do this for the ratings in the following 6 short sections."

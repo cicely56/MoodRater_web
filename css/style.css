@@ -236,7 +236,7 @@ body {
 }
 .datalabel{
    background-color: #828282
-   font-size: 100em;
+   font-size: 20em;
    /*position: relative;*/
    background: #575757;
   left: 0;
@@ -356,11 +356,11 @@ body {
   top: 0;
 }
 #emotionlabel{
-  font-size: 45px;
+  font-size: 28px;
 
   /*background: white;*/
   /*margin-left: 4em;*/
 }
 .emotionlabel{
-  font-size: 45px;
+  font-size: 28px;
   }

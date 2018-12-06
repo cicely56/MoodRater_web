@@ -87,43 +87,38 @@ function beforePrime(){
   paragraph.classList.add("explainRating");
   paragraph.id = 'va_instruction';
   header.innerHTML = "How to use the Mood Rater"
-  paragraph.innerHTML = "<ul><li>1. The Mood Rater consists of an interface for rating emotions in <b>valence-arousal</b> space."+ "<br><br>" 
-  + "<i>Definitions: <b>Valence </b>refers to the intrinsic <strong>positive/negative</strong> nature of the emotion; <b> arousal</b>  refers to the <b>degree of excitation</b>.<br> For example, <b>excited</b> would be <b>positive valence</b> and <b>high arousal</b>, <b>angry </b>would be <b>negative valence</b> and <b>high arousal</b>, and <b>sad</b> would be <b>negative valence</b> and <b>low arousal</b>. </i> "+ "<br>" +  "<br>" + "See diagram below for further examples.</li><ul>"
+  paragraph.innerHTML = "1. The Mood Rater consists of an interface for rating emotions in valence-arousal space."+ "<br>" 
+  + "<br>" + "<i>Definitions: Valence refers to the intrinsic positive/negative nature of the emotion; arousal refers to the degree of excitation. For example, overjoyed would be positive valence and high arousal, angry would be negative valence and high arousal, and depressed would be negative valence and low arousal. </i> "+ "<br>" +  "<br>" + "See diagram below for further examples."
 
   var paragraph1_2 = document.createElement("p");
     paragraph1_2.classList.add("explainRating");
     paragraph1_2.id = 'va_instruction2';
-    paragraph1_2.innerHTML =
-    "<ul><li> 2. Please rate the emotion while watching the video as soon as you notice a emotion change."+ "<ul><li>Click on any part of the Mood Rater interface to send an emotion rating.</li> "+"<li> When you click on the Mood Rater, some emotion tags will pop up to act as a guide tag. Do not worry if you do not agree with these tags; they are only a guide. You can have your own interpretion of the valence-arousal space.</li></ul></li>"
-   +
-   "<li>3. You are asked to report the<b> PERCEIVED EMOTION </b>, not your felt emotion(aka. please report which emotion the music expresses rather than which emotion the music induces). For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. </li></ul>" 
-    + "<br>" 
+    paragraph1_2.innerHTML ="<br>" + " 2. Click on any part of the Mood Rater interface to send an emotion rating whenever a change is noted. " 
+    + "<br>" +
+    "3. You are asked to report the<b> PERCEIVED EMOTION </b> . We are interested in the emotion the music is communicating, not the felt emotions. For example, we are interested in knowing if the music is portraying a peaceful emotion, and not that it makes a listener feel peaceful. "
+   
+    
   var va_pic2= document.createElement('div')
 
   va_pic2.id="myimage2";
   va_pic2.classList.add("center");
 
   vatagsplot18(va_pic2);
-  va_pic2.style.position = "relative";
-  va_pic2.style.left = "500px";
-  va_pic2.style.top = "-350px";
-  va_pic2.style.marginBottom = "-350px";
+   va_pic2.style.position = "relative";
+  va_pic2.style.left = "200px";
   // va_pic2.appendChild(bigImg);
 
   var va_pic = document.createElement('div')
-  
+ 
 
   va_pic.id="myimage";
   va_pic.classList.add("center");
-  va_pic.style.position = "relative";
-  va_pic.style.left = "-200px";
-  
 
-  var bigImg = document.createElement("img"); 
-    //创建一个img元素
-  // bigImg.src="https://www.researchgate.net/profile/Yi-hsuan_Yang/publication/254004106/figure/fig1/AS:298208942149638@1448109960909/The-2D-valence-arousal-emotion-space-Russell-1980-the-position-of-the-affective.png";   //给img元素的src属性赋值
-  //   //bigImg.width="320";  //320个像素 不用加px
-  bigImg.src="img/2D_MR.png"
+
+  var bigImg = document.createElement("img");   //创建一个img元素
+  bigImg.src="https://www.researchgate.net/profile/Yi-hsuan_Yang/publication/254004106/figure/fig1/AS:298208942149638@1448109960909/The-2D-valence-arousal-emotion-space-Russell-1980-the-position-of-the-affective.png";   //给img元素的src属性赋值
+    //bigImg.width="320";  //320个像素 不用加px
+
   va_pic.appendChild(bigImg);
  
  
@@ -131,9 +126,9 @@ function beforePrime(){
   
   $(".page3").append(header);
   $(".page3").append(paragraph);
-  
-  $(".page3").append(va_pic);
   $(".page3").append(va_pic2);
+  $(".page3").append(va_pic);
+
   $(".page3").append(paragraph1_2);
 
 
@@ -144,10 +139,9 @@ function beforePrime(){
     paragraph2.classList.add("explainRating");
     paragraph2.id = 'va_instruction2';
     header2.innerHTML = "Mood Rater Trial"
-    paragraph2.innerHTML = "<ol><li>You can now try the Mood Rater interface while viewing a test video.</li>"
-    +
-    "<li>Please adjust the soundlevel of headphone if you feel uncomfortable with the current setting. </li> " +
-    "<li>Once you are ready, click Continue to start the experiment. Do not hesitate to ask questions to the expertmentors at this stage. </li></ol>"
+    paragraph2.innerHTML = "1. Before the experiment, you can play with the Mood Rater while viewing a test video."
+    + "<br>" +
+    " 2. When you click on the Mood Rater: some emotion tags will pop up for rating feedback. Do not worry if you do not agree with these tags; they are only a guide. Please feel free to use the valence-arousal space in your own way." 
    
   $(".page3").append(header2);
   $(".page3").append(paragraph2);
@@ -290,21 +284,13 @@ function beforePrime(){
         ctx.lineTo(170*canvasscale, 10*canvasscale);
         ctx.fill();
 
-      ctx.font = "20px Arial";
-      ctx.fillText("Valence", 235*canvasscale, 180*canvasscale); 
-      ctx.font = "15px Arial";
-      ctx.fillStyle = "#e5e3dc";
-      ctx.fillText("(Positive)", 255*canvasscale, 152*canvasscale); 
-      ctx.fillText("(Negative)", 0*canvasscale, 152*canvasscale); 
-      ctx.fillText("(High Energy)", 125*canvasscale, 20*canvasscale); 
-      ctx.fillText("(Low Energy)", 128*canvasscale, 312*canvasscale);
-
-      ctx.save();
-      ctx.translate(158*canvasscale, 120*canvasscale);
-      ctx.rotate(Math.PI * 1.5);
-      ctx.font = "20px Arial";
-      ctx.fillStyle = "#000000"
-      ctx.fillText("Arousal", 28*canvasscale, 20*canvasscale);  
+        ctx.font = "16px Arial";
+        ctx.fillText("Valence", 200*canvasscale, 158*canvasscale); 
+        ctx.save();
+        ctx.translate(158*canvasscale, 120*canvasscale);
+        ctx.rotate(Math.PI * 1.5);
+        ctx.font = "16px Arial";
+        ctx.fillText("Arousal", 0*canvasscale, 0*canvasscale);  
         ctx.restore();
         $(".ddd").append(canvas_e); 
         //var emotiontext = document.createTextNode(text);
@@ -369,33 +355,53 @@ function beforePrime(){
 
         
         datalabel=document.getElementById('emotionlabel');
-        datalabel.innerHTML =findMood2(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
+        datalabel.innerHTML =findMood(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
         document.getElementById('ddd').append(datalabel);
 
-        function findMood(x, y) {
-          var distance = 1;
-          var index = null;
-          
-          for (var i = 0; i < moods.length; i++) {
-            var mood = moods[i];
-            var dx = Math.abs(mood[1] - x);
-            var dy = Math.abs(mood[2] - y);
-            var d = Math.sqrt(dx * dx + dy * dy);
 
-            if (d < distance) {
-              distance = d;
-              index = i;
-            }
+
+       function findMood(x, y) {
+        var distance = 1;
+        var index = null;
+
+        for (var i = 0; i < moods.length; i++) {
+          var mood = moods[i];
+          var dx = Math.abs(mood[1] - x);
+          var dy = Math.abs(mood[2] - y);
+          var d = Math.sqrt(dx * dx + dy * dy);
+
+          if (d < distance) {
+            distance = d;
+            index = i;
           }
-
-          return moods[index][0];
         }
+
+        return moods[index][0];
       }
 
   }
     var btndiv = btnNext('ratingpage');
     $(".constant").append(btndiv);
 }
+
+function findMood2(x, y) {
+        var distance = 1;
+        var index = null;
+
+        for (var i = 0; i < moods.length; i++) {
+          var mood = moods[i];
+          var dx = Math.abs(mood[1] - x);
+          var dy = Math.abs(mood[2] - y);
+          var d = Math.sqrt(dx * dx + dy * dy);
+
+          if (d < distance) {
+            distance = d;
+            index = i;
+          }
+        }
+
+        return moods[index][0];
+      }
 
 //INSTRUCTION Page3
 function beforeexplain(){
@@ -532,8 +538,8 @@ function canvasPrepare (gameCondition){
     canvas_R.addEventListener('click', function(evt) {
       var mousePos = getMousePos(canvas_R, evt);
       var videotimestamp= getVideoCurrentime();
-      var currenttag=findMood2(mousePos.x,mousePos.y);
-      var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp+",tags:"+findMood2(mousePos.x,mousePos.y);
+      var currenttag=findMood(mousePos.x,mousePos.y);
+      var message = "UserID:"+game.userID+',Mouse position: x=' + mousePos.x + ',&y=' + mousePos.y+',&time'+mousePos.clickdate+",videotime="+videotimestamp+",tags:"+findMood(mousePos.x,mousePos.y);
       var rating = {UserID: game.userID,
       UID:game.UID,
       Valence: mousePos.x,
@@ -601,22 +607,13 @@ function canvasPrepare (gameCondition){
       ctx.lineTo(170*canvasscale, 10*canvasscale);
       ctx.fill();
 
-      ctx.font = "20px Arial";
-      ctx.fillText("Valence", 235*canvasscale, 180*canvasscale); 
-      ctx.font = "15px Arial";
-      ctx.fillStyle = "#e5e3dc";
-      ctx.fillText("(Positive)", 255*canvasscale, 152*canvasscale); 
-      ctx.fillText("(Negative)", 0*canvasscale, 152*canvasscale); 
-      ctx.fillText("(High Energy)", 125*canvasscale, 20*canvasscale); 
-      ctx.fillText("(Low Energy)", 128*canvasscale, 312*canvasscale);
-
+      ctx.font = "16px Arial";
+      ctx.fillText("Valence", 200*canvasscale, 158*canvasscale); 
       ctx.save();
       ctx.translate(158*canvasscale, 120*canvasscale);
       ctx.rotate(Math.PI * 1.5);
-      ctx.font = "20px Arial";
-      ctx.fillStyle = "#000000"
-      ctx.fillText("Arousal", 28*canvasscale, 20*canvasscale);  
-
+      ctx.font = "16px Arial";
+      ctx.fillText("Arousal", 0*canvasscale, 0*canvasscale);  
       ctx.restore();
       $(".ddd").append(canvas_e); 
       //var emotiontext = document.createTextNode(text);
@@ -693,13 +690,14 @@ function canvasPrepare (gameCondition){
       datalabel=document.getElementById('emotionlabel');
 
        
-      datalabel.innerHTML =findMood2(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
+      datalabel.innerHTML =findMood(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
       document.getElementById('ddd').append(datalabel);
 
       
     }
 
-    function findMood(x, y) {
+
+  function findMood(x, y) {
         var distance = 1;
         var index = null;
 
@@ -740,7 +738,4 @@ function getMousePos(canvas, evt) {
           unixtime:timeStamp
         };
 }
-
-
-
 

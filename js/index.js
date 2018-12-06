@@ -123,17 +123,17 @@ function openWin() {
 
 function vatagsplot18(divID) {
   var trace1 = {
-  x: [-0.8475,-0.5375,-0.5175,-0.0475,-0.03,0.0625,0.0875,0.375,0.4825,0.5,0.6925,0.8025,0.65,-0.5125,0.38,-0.44,-0.155,0.4325,0.7675],
-  y: [-0.2175,0.5425,0.15,0.48,-0.4325,0.155,-0.25,0.035,-0.03,-0.6525,-0.5325,0.3725,0.54,-0.5425,0.42,0.26,-0.5875,-0.35,0.1425],
+  x: [-0.8475,-0.5375,-0.5175,-0.0475,-0.03,0,0.0875,0.375,0.4825,0.5,0.6925,0.8025,0.65,-0.5125,0.38,-0.44,-0.43,0.4325,0.7675],
+  y: [-0.2175,0.5425,0.15,0.48,-0.4325,0,-0.25,0.035,-0.03,-0.6525,-0.5325,0.3725,0.54,-0.5425,0.42,0.26,-0.59,-0.35,0.1425],
   mode: 'markers+text',
   type: 'scatter',
   name: 'emotion tags',
-  text: ["sad","angry","harsh","anxious","reserved","complex","reverent","warm","tender","relaxed","peaceful","happy","excited","bored","power","confused","lazy","calm","positive"],
+  text: ["sad","angry","harsh","anxious","reserved","neutral","reverent","warm","tender","relaxed","peaceful","happy","excited","bored","power","confused","tired","calm","positive"],
   textposition: 'top center',
    hoverinfo: 'text',
   textfont: {
     family:  'Raleway, sans-serif',
-    size:10
+    size:15
   },
   marker: { size: 12 ,
           color: "rgb(182, 185, 191)"}
@@ -142,20 +142,20 @@ function vatagsplot18(divID) {
   var data = [trace1];
 
   var layout = { 
-    width: 600,
-      height: 600,
+      width: 450,
+      height: 450,
       margin: {
-      l: 100,
-      r: 100,
-      b: 100,
-      t: 100,
+      l: 40,
+      r: 40,
+      b: 40,
+      t: 40,
       pad: 0,
     },
   xaxis: {
     title: "Valence",
     range: [ -1, 1 ],
     zeroline: true,
-     showline: true,
+    showline: true,
     linewidth: 3,
     zerolinewidth: 1, 
     
@@ -190,7 +190,7 @@ moods=[
 ["harsh",0.24125,0.575],
 ["anxious",0.47625,0.74],
 ["reserved",0.485,0.28375],
-["complex",0.53125,0.5775],
+["neutral",0.5,0.5],
 ["reverent",0.54375,0.375],
 ["warm",0.6875,0.5175],
 ["tender",0.74125,0.485],
@@ -201,11 +201,40 @@ moods=[
 ["bored",0.24375,0.22875],
 ["power",0.69,0.71],
 ["confused",0.28,0.63],
-["lazy",0.4225,0.20625],
+["tired",0.285,0.205],
 ["calm",0.71625,0.325],
-["positive",0.88375,0.57125]
+["positive",0.88375,0.57125],
+[""],
 ];        
 
+
+function findMood2(x, y) {
+        var distance = 1;
+        var index = null;
+        var distance_ref=0.125;
+
+        for (var i = 0; i < moods.length; i++) {
+          var mood = moods[i];
+          var dx = Math.abs(mood[1] - x);
+          var dy = Math.abs(mood[2] - y);
+          var d = Math.sqrt(dx * dx + dy * dy);
+
+          if (d < distance) {
+            distance = d;
+            index = i;
+          }
+        }
+        // return moods[index][0];
+
+        distance_measure= Math.sqrt((x-moods[index][1])*(x-moods[index][1])+(y-moods[index][2])*(y-moods[index][2]))
+
+        if(distance_measure<distance_ref){
+          return moods[index][0];
+        }else{
+          return moods[19][0];
+        }
+        
+      }
 
 function saveID(){
   var userid = document.getElementById("useridinput").value;
@@ -504,13 +533,21 @@ function drawCanvas_explain (canvasID) {
       ctx.lineTo(170*canvasscale, 10*canvasscale);
       ctx.fill();
 
-      ctx.font = "16px Arial";
-      ctx.fillText("Valence", 200*canvasscale, 158*canvasscale); 
+      ctx.font = "20px Arial";
+      ctx.fillText("Valence", 235*canvasscale, 180*canvasscale); 
+      ctx.font = "15px Arial";
+      ctx.fillStyle = "#e5e3dc";
+      ctx.fillText("(Positive)", 255*canvasscale, 152*canvasscale); 
+      ctx.fillText("(Negative)", 0*canvasscale, 152*canvasscale); 
+      ctx.fillText("(High Energy)", 125*canvasscale, 20*canvasscale); 
+      ctx.fillText("(Low Energy)", 128*canvasscale, 312*canvasscale);
+
       ctx.save();
       ctx.translate(158*canvasscale, 120*canvasscale);
       ctx.rotate(Math.PI * 1.5);
-      ctx.font = "16px Arial";
-      ctx.fillText("Arousal", 0*canvasscale, 0*canvasscale);  
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "#000000"
+      ctx.fillText("Arousal", 28*canvasscale, 20*canvasscale);    
       ctx.restore();
       
       //var emotiontext = document.createTextNode(text);
@@ -572,7 +609,7 @@ function setMarker_explain(canvas_explainID,emotionlabelID,v,a) {
 
       
       datalabel=document.getElementById(emotionlabelID);
-      datalabel.innerHTML =findMood(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
+      datalabel.innerHTML =findMood2(x, y)+"<font size=2 color=#919296> (Guide Only) </font>";
       
 
       function findMood(x, y) {
@@ -699,7 +736,7 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
 
 
   bootbox.form({
-    title: 'You rated the emotion as'+'<strong> <br> Arousal= '+a+' (scale:0-1), Valence ='+ v+" (scale:0-1)</strong><br>"+'Guide Tag= <strong>'+tags+'</strong>',
+    title: 'You rated the emotion as'+'<strong> <br> Arousal= '+a+'/1, Valence ='+ v+"/1</strong><br>"+'Guide Tag= <strong>'+tags+'</strong>',
     fields: {
         // name: {
         //     label: 'Name',
@@ -721,18 +758,18 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
         //     ]
         // },
         confidence_rating: {
-            label: 'Do you want to confirm this VA rating ?',
+            label: 'Does this rating reflects well your perceived emotion at this moment?',
             type:  'checkbox',
             options: [
                 // {value: "3", text: 'Yes'},
                 // {value: "2", text: 'Neutral'},
                 {value: "1", text: 'Yes'},
-                {value: "0", text: 'No. I want to disgard this VA rating <br> (skip the following questions if you choose this)'}
+                {value: "0", text: 'No. I want to discard this VA rating <br> (skip the following questions if you choose this)'}
             ]
         },
 
         confidence_va: {
-            label: 'At this point, how clear the emotion is portrating by the music? <br> (Scale: 1(very unclear)--7(very clear))',
+            label: 'How clear is the emotion portrayed by the music at this moment? )',
             type:  'select',
             options: [
                 {value: 7, text: '7 (Very Clear)'},
@@ -780,10 +817,20 @@ function ratingConfirm(commentLogObj,pta,ptv,pttag,pttime,sectionNo){
         //     type: 'password'
         // },
         desc: {
-            label: 'Would you please let us know the reason behind your rating?',
+            label: 'Reasons behind your rating <br> (No limit in word length. The more the better.)',
             value: "",
             type: 'textarea'
+        },
+        desc2: {
+            label: 'Reasons?',
+            type:  'checkbox',
+            options: [
+                // {value: "3", text: 'Yes'},
+                // {value: "2", text: 'Neutral'},
+                {value: "1", text: 'Same reasons as rating points nearby'}
+                 ]
         }
+
     },
     callback: function (values) {
         
