@@ -275,7 +275,7 @@ function pageExplain2(){
 
 		canvasrating("myvachart3","mycanvasE3","emotionlabel3");
 
-		lineplotandcmes("mylinechart3",247,314,"mycanvasE3","emotionlabel3",commentLogIn3,"section3");
+		lineplotandcmes("mylinechart3",248,314,"mycanvasE3","emotionlabel3",commentLogIn3,"section3");
 
 	//******************************************************
 	//*********section2*********
