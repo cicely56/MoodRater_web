@@ -69,6 +69,8 @@ function pageExplain(){
 	var linechart1 = document.createElement('div');
 	      
 	  	linechart1.id="mylinechart1";
+	  	linechart1.style.position = "relative";
+	    linechart1.style.left = "130px";
 	  	
 	  //linechart1.classList.add("center");
 	  $(".page4").append(linechart1);
@@ -80,9 +82,9 @@ function pageExplain(){
 	  	$(".page4").append(vachart1);
 	  	vachart1.classList.add('ddd');
 	    vachart1.style.position = "relative";
-	    vachart1.style.left = "740px";
-	    vachart1.style.top = "-530px";
-	    vachart1.style.marginBottom = "-350px";
+	    vachart1.style.left = "760px";
+	    vachart1.style.top = "-230px";
+	    vachart1.style.marginBottom = "-230px";
 
 	  	var canvas_1 = document.createElement("canvas");
 	     canvas_1.id = "mycanvasE1"
@@ -118,8 +120,11 @@ function pageExplain(){
  	var linechart2 = document.createElement('div');
       
   		linechart2.id="mylinechart2";
+
   	
 	  	linechart2.classList.add("center");
+	  	linechart2.style.position = "relative";
+	    linechart2.style.left = "130px";
 	 	 $(".page4").append(linechart2);
 
 
@@ -128,9 +133,10 @@ function pageExplain(){
 	    $(".page4").append(vachart2);
 	    vachart2.classList.add('ddd');
 	    vachart2.style.position = "relative";
-	    vachart2.style.left = "740px";
-	    vachart2.style.top = "-530px";
-	    vachart2.style.marginBottom = "-350px";
+	    vachart2.style.left = "760px";
+	    vachart2.style.top = "-230px";
+	    vachart2.style.marginBottom = "-230px";
+
 
     var canvas_2 = document.createElement("canvas");
 	     canvas_2.id = "mycanvasE2"
@@ -243,6 +249,8 @@ function pageExplain2(){
 	var linechart3 = document.createElement('div');
 	      
 	  	linechart3.id="mylinechart3";
+	  	linechart3.style.position = "relative";
+	    linechart3.style.left = "130px";
 	  	
 	  //linechart1.classList.add("center");
 	  $(".page4").append(linechart3);
@@ -254,9 +262,9 @@ function pageExplain2(){
 	  	$(".page4").append(vachart3);
 	  	vachart3.classList.add('ddd');
 	    vachart3.style.position = "relative";
-	    vachart3.style.left = "740px";
-	    vachart3.style.top = "-530px";
-	    vachart3.style.marginBottom = "-350px";
+	    vachart3.style.left = "760px";
+	    vachart3.style.top = "-200px";
+	    vachart3.style.marginBottom = "-200px";
 
 	  	var canvas_3 = document.createElement("canvas");
 	     canvas_3.id = "mycanvasE3"
@@ -292,6 +300,8 @@ function pageExplain2(){
  	var linechart4 = document.createElement('div');
       
   		linechart4.id="mylinechart4";
+  		linechart4.style.position = "relative";
+	    linechart4.style.left = "130px";
   	
 	  	linechart4.classList.add("center");
 	 	 $(".page4").append(linechart4);
@@ -302,9 +312,9 @@ function pageExplain2(){
 	    $(".page4").append(vachart4);
 	    vachart4.classList.add('ddd');
 	    vachart4.style.position = "relative";
-	    vachart4.style.left = "740px";
-	    vachart4.style.top = "-530px";
-	    vachart4.style.marginBottom = "-350px";
+	    vachart4.style.left = "760px";
+	    vachart4.style.top = "-200px";
+	    vachart4.style.marginBottom = "-200px";
 
     var canvas_4 = document.createElement("canvas");
 	     canvas_4.id = "mycanvasE4"
@@ -418,6 +428,8 @@ function pageExplain3(){
     var linechart5 = document.createElement('div');
           
         linechart5.id="mylinechart5";
+        linechart5.style.position = "relative";
+	    linechart5.style.left = "130px";
         
       //linechart1.classList.add("center");
       $(".page4").append(linechart5);
@@ -429,9 +441,9 @@ function pageExplain3(){
         $(".page4").append(vachart5);
         vachart5.classList.add('ddd');
         vachart5.style.position = "relative";
-        vachart5.style.left = "740px";
-        vachart5.style.top = "-530px";
-        vachart5.style.marginBottom = "-350px";
+        vachart5.style.left = "760px";
+        vachart5.style.top = "-230px";
+        vachart5.style.marginBottom = "-230px";
 
         var canvas_5 = document.createElement("canvas");
          canvas_5.id = "mycanvasE5"
@@ -466,6 +478,8 @@ function pageExplain3(){
     var linechart6 = document.createElement('div');
           
         linechart6.id="mylinechart6";
+        linechart6.style.position = "relative";
+	    linechart6.style.left = "130px";
         
       //linechart1.classList.add("center");
       $(".page4").append(linechart6);
@@ -477,9 +491,9 @@ function pageExplain3(){
         $(".page4").append(vachart6);
         vachart6.classList.add('ddd');
         vachart6.style.position = "relative";
-        vachart6.style.left = "740px";
-        vachart6.style.top = "-530px";
-        vachart6.style.marginBottom = "-350px";
+        vachart6.style.left = "760px";
+        vachart6.style.top = "-230px";
+        vachart6.style.marginBottom = "-230px";
 
         var canvas_6 = document.createElement("canvas");
          canvas_6.id = "mycanvasE6"
@@ -571,8 +585,8 @@ function PB_CMT (audioID){
       // file: "https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a",
       file: filepath,
       
-      width: 710,
-      height: 410,
+      width: 750,
+      height: 40,
       repeat: false,
       //aspectratio: '16:9',
       autostart: false,
