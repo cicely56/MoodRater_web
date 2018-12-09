@@ -54,23 +54,23 @@ function pageExplain(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section1.innerHTML = "Short Section 1/6"
-	exp_section2.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 2/6"
+	exp_section1.innerHTML = "Short Section 1/5"
+	exp_section2.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 2/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
 	var audioclip1 = document.createElement('div');
+		audioclip1.classList.add()
 	  	audioclip1.id="myaudio1";
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip1);
 
-	PB_CMT ("myaudio1");
+	PB_CMT2("myaudio1");
+
 
 	var linechart1 = document.createElement('div');
 	      
 	  	linechart1.id="mylinechart1";
-	  	linechart1.style.position = "relative";
-	    linechart1.style.left = "130px";
 	  	
 	  //linechart1.classList.add("center");
 	  $(".page4").append(linechart1);
@@ -82,9 +82,9 @@ function pageExplain(){
 	  	$(".page4").append(vachart1);
 	  	vachart1.classList.add('ddd');
 	    vachart1.style.position = "relative";
-	    vachart1.style.left = "760px";
-	    vachart1.style.top = "-230px";
-	    vachart1.style.marginBottom = "-230px";
+	    vachart1.style.left = "740px";
+	    vachart1.style.top = "-530px";
+	    vachart1.style.marginBottom = "-350px";
 
 	  	var canvas_1 = document.createElement("canvas");
 	     canvas_1.id = "mycanvasE1"
@@ -115,16 +115,13 @@ function pageExplain(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip2);
 
-	 	 PB_CMT ("myaudio2");
+	 	 PB_CMT2 ("myaudio2");
 
  	var linechart2 = document.createElement('div');
       
   		linechart2.id="mylinechart2";
-
   	
 	  	linechart2.classList.add("center");
-	  	linechart2.style.position = "relative";
-	    linechart2.style.left = "130px";
 	 	 $(".page4").append(linechart2);
 
 
@@ -133,10 +130,9 @@ function pageExplain(){
 	    $(".page4").append(vachart2);
 	    vachart2.classList.add('ddd');
 	    vachart2.style.position = "relative";
-	    vachart2.style.left = "760px";
-	    vachart2.style.top = "-230px";
-	    vachart2.style.marginBottom = "-230px";
-
+	    vachart2.style.left = "740px";
+	    vachart2.style.top = "-530px";
+	    vachart2.style.marginBottom = "-350px";
 
     var canvas_2 = document.createElement("canvas");
 	     canvas_2.id = "mycanvasE2"
@@ -234,8 +230,8 @@ function pageExplain2(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section3.innerHTML = "Short Section 3/6"
-	exp_section4.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 4/6"
+	exp_section3.innerHTML = "Short Section 3/5"
+	exp_section4.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 4/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
@@ -244,13 +240,11 @@ function pageExplain2(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip3);
 
-	PB_CMT ("myaudio3");
+	PB_CMT2 ("myaudio3");
 
 	var linechart3 = document.createElement('div');
 	      
 	  	linechart3.id="mylinechart3";
-	  	linechart3.style.position = "relative";
-	    linechart3.style.left = "130px";
 	  	
 	  //linechart1.classList.add("center");
 	  $(".page4").append(linechart3);
@@ -262,9 +256,9 @@ function pageExplain2(){
 	  	$(".page4").append(vachart3);
 	  	vachart3.classList.add('ddd');
 	    vachart3.style.position = "relative";
-	    vachart3.style.left = "760px";
-	    vachart3.style.top = "-200px";
-	    vachart3.style.marginBottom = "-200px";
+	    vachart3.style.left = "740px";
+	    vachart3.style.top = "-530px";
+	    vachart3.style.marginBottom = "-350px";
 
 	  	var canvas_3 = document.createElement("canvas");
 	     canvas_3.id = "mycanvasE3"
@@ -295,13 +289,11 @@ function pageExplain2(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip4);
 
-	 	 PB_CMT ("myaudio4");
+	 	 PB_CMT2 ("myaudio4");
 
  	var linechart4 = document.createElement('div');
       
   		linechart4.id="mylinechart4";
-  		linechart4.style.position = "relative";
-	    linechart4.style.left = "130px";
   	
 	  	linechart4.classList.add("center");
 	 	 $(".page4").append(linechart4);
@@ -312,9 +304,9 @@ function pageExplain2(){
 	    $(".page4").append(vachart4);
 	    vachart4.classList.add('ddd');
 	    vachart4.style.position = "relative";
-	    vachart4.style.left = "760px";
-	    vachart4.style.top = "-200px";
-	    vachart4.style.marginBottom = "-200px";
+	    vachart4.style.left = "740px";
+	    vachart4.style.top = "-530px";
+	    vachart4.style.marginBottom = "-350px";
 
     var canvas_4 = document.createElement("canvas");
 	     canvas_4.id = "mycanvasE4"
@@ -413,8 +405,8 @@ function pageExplain3(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section5.innerHTML = "Short Section 5/6"
-	exp_section6.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 6/6"
+	exp_section5.innerHTML = "Short Section 5/5"
+	exp_section6.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 6/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
@@ -423,13 +415,11 @@ function pageExplain3(){
         //audioclip1.classList.add("page4");
         $(".page4").append(audioclip5);
 
-    PB_CMT ("myaudio5");
+    PB_CMT2 ("myaudio5");
 
     var linechart5 = document.createElement('div');
           
         linechart5.id="mylinechart5";
-        linechart5.style.position = "relative";
-	    linechart5.style.left = "130px";
         
       //linechart1.classList.add("center");
       $(".page4").append(linechart5);
@@ -441,9 +431,9 @@ function pageExplain3(){
         $(".page4").append(vachart5);
         vachart5.classList.add('ddd');
         vachart5.style.position = "relative";
-        vachart5.style.left = "760px";
-        vachart5.style.top = "-230px";
-        vachart5.style.marginBottom = "-230px";
+        vachart5.style.left = "740px";
+        vachart5.style.top = "-530px";
+        vachart5.style.marginBottom = "-350px";
 
         var canvas_5 = document.createElement("canvas");
          canvas_5.id = "mycanvasE5"
@@ -473,13 +463,11 @@ function pageExplain3(){
         //audioclip1.classList.add("page4");
         $(".page4").append(audioclip6);
 
-    PB_CMT ("myaudio6");
+    PB_CMT2 ("myaudio6");
 
     var linechart6 = document.createElement('div');
           
         linechart6.id="mylinechart6";
-        linechart6.style.position = "relative";
-	    linechart6.style.left = "130px";
         
       //linechart1.classList.add("center");
       $(".page4").append(linechart6);
@@ -491,9 +479,9 @@ function pageExplain3(){
         $(".page4").append(vachart6);
         vachart6.classList.add('ddd');
         vachart6.style.position = "relative";
-        vachart6.style.left = "760px";
-        vachart6.style.top = "-230px";
-        vachart6.style.marginBottom = "-230px";
+        vachart6.style.left = "740px";
+        vachart6.style.top = "-530px";
+        vachart6.style.marginBottom = "-350px";
 
         var canvas_6 = document.createElement("canvas");
          canvas_6.id = "mycanvasE6"
@@ -585,8 +573,8 @@ function PB_CMT (audioID){
       // file: "https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a",
       file: filepath,
       
-      width: 750,
-      height: 40,
+      width: 710,
+      height: 410,
       repeat: false,
       //aspectratio: '16:9',
       autostart: false,
@@ -617,6 +605,97 @@ function PB_CMT (audioID){
 
   // $(".gamefield").append(para);
 }
+
+
+function PB_CMT2 (audioID){
+
+id=audioID
+
+var filepath;
+  //player
+  switch(audioID) {
+    case "myaudio1":
+      filepath= "https://content.jwplatform.com/videos/Pk9bJNBJ-7xqDv6Uz.mp4";//segment2
+      break;
+    case "myaudio2":
+     filepath= "https://content.jwplatform.com/videos/eGWfpH6u-7xqDv6Uz.mp4";
+    break;
+    case "myaudio3":
+     filepath= "https://content.jwplatform.com/videos/seiXhSMW-7xqDv6Uz.mp4";
+    break;
+    case "myaudio4":
+     filepath= "https://content.jwplatform.com/videos/XGlOvNjg-7xqDv6Uz.mp4";
+    break;
+    case "myaudio5":
+     filepath= "https://content.jwplatform.com/videos/TXgpIczu-7xqDv6Uz.mp4";
+    break;
+    case "myaudio6":
+     filepath= "https://content.jwplatform.com/videos/RmyI3AUF-7xqDv6Uz.mp4";
+    break;
+
+	};	
+
+var c = document.getElementById (id);
+var video3=document.createElement('video');
+video3.id="boxv"+id
+// video3.appendTo("#box")
+c.appendChild (video3)
+
+
+var obj= document.getElementById("boxv"+id);
+obj.classList.add("video-js","vjs-default-skin","vjs-big-play-centered")
+
+// obj.id="video2"+"video"
+obj.src=filepath;
+
+videojs("boxv"+id, {
+  controls: true,
+  autoplay: false,
+  preload: 'auto',
+	"inactivityTimeout": 0,
+	"width": 730,
+	// width=640, 
+	// "height"=264 
+	
+});
+
+////
+
+
+
+  
+
+   // audiodiv.id="myaudio"
+  //var ifrm = document.createElement("div");
+ // ifrm.id = "myaudio";
+ 
+	// filepath="https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a";
+
+
+
+
+  //ifrm.classList.add("page4");
+   // var para = document.createElement("p");
+   // para.classList.add("center");
+   // para.id = "displaytimes"; 
+   // para.innerHTML = "this is segment " ;
+  // if(page === 5){
+  //   para.innerHTML = "First time. " + " 第一次。";
+  // }else if (page === 6){
+  //   $("#displaytimes").remove();
+  //   para.innerHTML = "Second time. " + " 第二次。";
+  // }
+  	// ifrm.setAttribute("src", "https://jwp.io/s/pcitcWP1");//jwplayer
+    
+   //  ifrm.style.width = "600px";
+   //  ifrm.style.height = "40px";
+   //  ifrm.style.frameborder = "0";
+   //  ifrm.style.scrolling="auto";
+   // audiodiv.appendChild(ifrm);
+
+  // $(".gamefield").append(para);
+}
+
 
 // function commentsforrating (commentID) {
 

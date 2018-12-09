@@ -212,7 +212,6 @@ function beforePrime(){
         timeSliderAbove:true,
         displayPlaybackLabel:true
 
-
       });
       
       function getVideoCurrentime2() {
@@ -517,7 +516,6 @@ function canvasPrepare (gameCondition){
       displayPlaybackLabel:true
 
     });
-   
 
 
    

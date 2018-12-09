@@ -318,10 +318,10 @@ function lineplotandcmes(lineplotID,t_start,t_end,canvasID,emotionlabelID,commen
   };
 
   var layout = {
-      width: 530,
+      width: 650,
       height: 150,
       margin: {
-      l: 10,
+      l: 80,
       r: 10,
       b: 20,
       t: 20,
