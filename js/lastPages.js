@@ -54,17 +54,19 @@ function pageExplain(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section1.innerHTML = "Short Section 1/6"
-	exp_section2.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 2/6"
+	exp_section1.innerHTML = "Short Section 1/5"
+	exp_section2.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 2/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
 	var audioclip1 = document.createElement('div');
+		audioclip1.classList.add()
 	  	audioclip1.id="myaudio1";
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip1);
 
-	PB_CMT ("myaudio1");
+	PB_CMT2("myaudio1");
+
 
 	var linechart1 = document.createElement('div');
 	      
@@ -113,7 +115,7 @@ function pageExplain(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip2);
 
-	 	 PB_CMT ("myaudio2");
+	 	 PB_CMT2 ("myaudio2");
 
  	var linechart2 = document.createElement('div');
       
@@ -228,8 +230,8 @@ function pageExplain2(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section3.innerHTML = "Short Section 3/6"
-	exp_section4.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 4/6"
+	exp_section3.innerHTML = "Short Section 3/5"
+	exp_section4.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 4/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
@@ -238,7 +240,7 @@ function pageExplain2(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip3);
 
-	PB_CMT ("myaudio3");
+	PB_CMT2 ("myaudio3");
 
 	var linechart3 = document.createElement('div');
 	      
@@ -287,7 +289,7 @@ function pageExplain2(){
 	  	//audioclip1.classList.add("page4");
 	  	$(".page4").append(audioclip4);
 
-	 	 PB_CMT ("myaudio4");
+	 	 PB_CMT2 ("myaudio4");
 
  	var linechart4 = document.createElement('div');
       
@@ -403,8 +405,8 @@ function pageExplain3(){
 		"You will be asked to do this for the ratings in the following 6 short sections."
 
 
-	exp_section5.innerHTML = "Short Section 5/6"
-	exp_section6.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 6/6"
+	exp_section5.innerHTML = "Short Section 5/5"
+	exp_section6.innerHTML = "<br>"+"<br>"+"<br>"+"Short Section 6/5"
 	//******************************************************
 	//*********section1*********
 	//******************************************************
@@ -413,7 +415,7 @@ function pageExplain3(){
         //audioclip1.classList.add("page4");
         $(".page4").append(audioclip5);
 
-    PB_CMT ("myaudio5");
+    PB_CMT2 ("myaudio5");
 
     var linechart5 = document.createElement('div');
           
@@ -461,7 +463,7 @@ function pageExplain3(){
         //audioclip1.classList.add("page4");
         $(".page4").append(audioclip6);
 
-    PB_CMT ("myaudio6");
+    PB_CMT2 ("myaudio6");
 
     var linechart6 = document.createElement('div');
           
@@ -603,6 +605,97 @@ function PB_CMT (audioID){
 
   // $(".gamefield").append(para);
 }
+
+
+function PB_CMT2 (audioID){
+
+id=audioID
+
+var filepath;
+  //player
+  switch(audioID) {
+    case "myaudio1":
+      filepath= "https://content.jwplatform.com/videos/Pk9bJNBJ-7xqDv6Uz.mp4";//segment2
+      break;
+    case "myaudio2":
+     filepath= "https://content.jwplatform.com/videos/eGWfpH6u-7xqDv6Uz.mp4";
+    break;
+    case "myaudio3":
+     filepath= "https://content.jwplatform.com/videos/seiXhSMW-7xqDv6Uz.mp4";
+    break;
+    case "myaudio4":
+     filepath= "https://content.jwplatform.com/videos/XGlOvNjg-7xqDv6Uz.mp4";
+    break;
+    case "myaudio5":
+     filepath= "https://content.jwplatform.com/videos/TXgpIczu-7xqDv6Uz.mp4";
+    break;
+    case "myaudio6":
+     filepath= "https://content.jwplatform.com/videos/RmyI3AUF-7xqDv6Uz.mp4";
+    break;
+
+	};	
+
+var c = document.getElementById (id);
+var video3=document.createElement('video');
+video3.id="boxv"+id
+// video3.appendTo("#box")
+c.appendChild (video3)
+
+
+var obj= document.getElementById("boxv"+id);
+obj.classList.add("video-js","vjs-default-skin","vjs-big-play-centered")
+
+// obj.id="video2"+"video"
+obj.src=filepath;
+
+videojs("boxv"+id, {
+  controls: true,
+  autoplay: false,
+  preload: 'auto',
+	"inactivityTimeout": 0,
+	"width": 730,
+	// width=640, 
+	// "height"=264 
+	
+});
+
+////
+
+
+
+  
+
+   // audiodiv.id="myaudio"
+  //var ifrm = document.createElement("div");
+ // ifrm.id = "myaudio";
+ 
+	// filepath="https://content.jwplatform.com/videos/QkhnzpwU-QBzDmDmf.m4a";
+
+
+
+
+  //ifrm.classList.add("page4");
+   // var para = document.createElement("p");
+   // para.classList.add("center");
+   // para.id = "displaytimes"; 
+   // para.innerHTML = "this is segment " ;
+  // if(page === 5){
+  //   para.innerHTML = "First time. " + " 第一次。";
+  // }else if (page === 6){
+  //   $("#displaytimes").remove();
+  //   para.innerHTML = "Second time. " + " 第二次。";
+  // }
+  	// ifrm.setAttribute("src", "https://jwp.io/s/pcitcWP1");//jwplayer
+    
+   //  ifrm.style.width = "600px";
+   //  ifrm.style.height = "40px";
+   //  ifrm.style.frameborder = "0";
+   //  ifrm.style.scrolling="auto";
+   // audiodiv.appendChild(ifrm);
+
+  // $(".gamefield").append(para);
+}
+
 
 // function commentsforrating (commentID) {
 
